@@ -6,8 +6,8 @@ USE cookbook_db;
 CREATE TABLE recipes (
     id int NOT NULL AUTO_INCREMENT,
     recipe_name VARCHAR(200) NOT NULL,
-    ingredients VARCHAR,
-    directions VARCHAR() NOT NULL,
+    ingredients VARCHAR(550),
+    directions VARCHAR(550) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -23,14 +23,14 @@ INSERT INTO recipes (recipe_name, ingredients, directions)
 
 -- TODO: '1,2,3' need to be split on the comma and conversted to an array referencing the ingredients table
 VALUES 
-('test', '1,2,3', 'test direction'), 
-('test2', '[{"ingredientId": 1, "amount": "2 cups"},{"ingredientId": 2, "amount": "1/2lb"}]', 'test2 direction'),
-('test3', 'test3 ingredient', 'test3 direction');
+('test', '[{"ingredientId": 1, "amount": "2 cups"},{"ingredientId": 2, "amount": "1/2lb"}]', 'test direction'), 
+('test2', '[{"ingredientId": 3, "amount": "2 cups"},{"ingredientId": 1, "amount": "1/2lb"}]', 'test2 direction'),
+('test3', '[{"ingredientId": 2, "amount": "2 cups"},{"ingredientId": 3, "amount": "1/2lb"}]', 'test3 direction');
 
 
-INSERT INTO ingredients (ingredients_name, season)
+INSERT INTO ingredients (ingredient_name, season)
 
 VALUES 
-('test ingredient 1', NULL), 
-('test2 ingredient 2', NULL),
-('test3 ingredient 3', NULL);
+('Salt', NULL), 
+('Watermelon', NULL),
+('Rice', NULL);
