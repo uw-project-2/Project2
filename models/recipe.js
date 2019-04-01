@@ -1,9 +1,30 @@
 module.exports = function(sequelize, DataTypes) {
-  var Example = sequelize.define("Example", {
-    text: DataTypes.STRING,
-    description: DataTypes.TEXT
+  var Recipe = sequelize.define("Recipe", {
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [1]
+      }
+    },
+    body: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      len: [1]
+    }
   });
-  return Example;
+
+  Recipe.associate = function(models) {
+    // We're saying that a Recipe should have an Ingredient
+    // A Recipe can't be created without an Ingredient due to the foreign key constraint
+    Recipe.belongsTo(models.Ingredient, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+
+  return Recipe;
 };
 
 
