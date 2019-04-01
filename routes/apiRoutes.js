@@ -1,6 +1,15 @@
 var db = require("../models");
+var seasonalFoods = require("../data/seasonalFoods.js");
+
 
 module.exports = function(app) {
+  //displays seasonal food from seaonal.js
+  app.get("/api/seasonalFoods", function(req, res) {
+    res.json(seasonalFoods);
+  });
+  };
+// ---------------------------------------------------------------------------
+
   // Get all examples
   app.get("/api/examples", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
