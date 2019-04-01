@@ -47,7 +47,7 @@ console.log(query)
 // imagine query ^ retrieving ingredients from the db:
 // TODO: ACTUALLY get this array of ingredients from the db via the above query.
 // from db.ingredients
-var dbIngredients = [{
+var dbIngredient = [{
   id: 1,
   name: "Salt",
   season: "all"
@@ -57,7 +57,7 @@ var dbIngredients = [{
   season: "summer"
 }]
 
-dbIngredients = dbIngredients.map(function(ingredient) {
+dbIngredient = dbIngredient.map(function(ingredient) {
   for (var i=0; i<recipeIngredients.length; i++) {
     if (ingredient.id === recipeIngredients[i].id) {
      ingredient.amount = recipeIngredients[i].amount; 
@@ -66,4 +66,4 @@ dbIngredients = dbIngredients.map(function(ingredient) {
   return ingredient;
 })
 
-console.log(dbIngredients)
+console.log(dbIngredient)
