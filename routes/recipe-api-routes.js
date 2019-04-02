@@ -1,6 +1,6 @@
 var db = require("../models");
-//FIXME:We don't have a Data file.  Where is this?
-var seasonalFoods = require("../data/seasonalFoods.js");
+
+var seasonalFoods = require("../models/seasonalFoods.js");
 
 
 module.exports = function (app) {
