@@ -14,9 +14,16 @@
     "mysql2": "^1.6.5",
     "sequelize": "^4.43.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "npm run lint",
+    "fix": "npm run lint -- --fix",
+    "lint": "node_modules/.bin/eslint '**/*.js' --fix",
     "start": "node server.js"
   },
   "repository": {

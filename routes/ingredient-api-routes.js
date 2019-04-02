@@ -2,14 +2,11 @@ var db = require("../models");
 
 var seasonalFoods = require("../models/seasonal.js");
 
-
 module.exports = function(app) {
-  
   //displays seasonal food from seaonal.js
-  app.get("/api/seasonal", function (req, res) {
+  app.get("/api/seasonal", function(req, res) {
     res.json(seasonalFoods);
   });
-
 
   app.get("/api/ingredients", function(req, res) {
     // Here we add an "include" property to our options in our findAll query
@@ -51,5 +48,4 @@ module.exports = function(app) {
       res.json(dbIngredient);
     });
   });
-
 };
