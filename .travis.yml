@@ -8,4 +8,3 @@ cache:
     - node_modules
 before_install:
   - mysql -e 'CREATE DATABASE testdb;'
-script: npm run test
