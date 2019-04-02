@@ -1,6 +1,6 @@
 var db = require("../models");
 
-var seasonalFoods = require("../models/seasonalFoods.js");
+var seasonalFoods = require("../models/seasonal.js");
 
 
 module.exports = function (app) {
