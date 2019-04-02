@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 module.exports = function(sequelize, DataTypes) {
   var Recipe = sequelize.define("Recipe", {
     title: {
@@ -31,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
 
 // TODO: QUERY RECIPES
 var recipeIngredients =
-  "[{ 'id': 1, 'amount': '2 cups'}, { 'id': 2, 'amount': '1 cups' }]";
+  "[{ \"id\": 1, \"amount\": \"2 cups\"}, { \"id\": 2, \"amount\": \"1 cups\" }]";
 
 recipeIngredients = JSON.parse(recipeIngredients);
 
