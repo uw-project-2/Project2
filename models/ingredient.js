@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
   Ingredient.associate = function(models) {
     // Associating Ingredient with Recipes
     // When an Ingredient is deleted, also delete any associated Recipes
-    Ingredient.hasMany(models.Post, {
+    Ingredient.hasMany(models.Recipe, {
       onDelete: "cascade"
     });
   };

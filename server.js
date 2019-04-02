@@ -1,17 +1,17 @@
 require("dotenv").config();
+
 var express = require("express");
 var exphbs = require("express-handlebars");
-console.log(process.env);
 
 var db = require("./models");
 
 var app = express();
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8081;
 
 // Middleware
 app.use(
   express.urlencoded({
-    extended: false
+    extended: true
   })
 );
 app.use(express.json());
@@ -29,7 +29,8 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
+require("./routes/ingredient-api-routes")(app);
+require("./routes/recipe-api-routes")(app);
 require("./routes/htmlRoutes")(app);
 
 var syncOptions = {
@@ -43,12 +44,10 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
+db.sequelize.sync({syncOptions}).then(function() {
   app.listen(PORT, function() {
     console.log(
-      "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
-      PORT,
-      PORT
+      "App listening on PORT " + PORT
     );
   });
 });
