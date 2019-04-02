@@ -4,9 +4,9 @@
         "commonjs": true,
         "node": true
     },
-    "extends": "beautify",
+    "extends": "prettier",
     "plugins": [
-        "beautify"
+        "prettier"
       ],
     "rules": {
         "no-duplicate-case":"error",
@@ -38,6 +38,6 @@
             "error",
             "always"
         ],
-        "beautify/beautify": "error"
+        "prettier/prettier": "error"
     }
 }
