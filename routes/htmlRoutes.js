@@ -3,21 +3,21 @@ var db = require("../models");
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Recipe.findAll({}).then(function(dbRecipes) {
       res.render("index", {
         msg: "Welcome!",
-        examples: dbExamples
+        Recipes: dbRecipes
       });
     });
   });
 
-  // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(
-      dbExample
+  // Load recipe page and pass in a recipe by id
+  app.get("/recipe/:id", function(req, res) {
+    db.Recipe.findOne({ where: { id: req.params.id } }).then(function(
+      dbRecipe
     ) {
       res.render("example", {
-        example: dbExample
+        recipe: dbRecipe
       });
     });
   });
@@ -27,6 +27,8 @@ module.exports = function(app) {
     res.render("404");
   });
 };
+
+//OR THIS????-------------------------------
 
 // *********************************************************************************
 // html-routes.js - this file offers a set of routes for sending users to the various html pages
@@ -56,9 +58,9 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/seasonal.html"));
   });
 
-  // ingredients route loads ingredients-manager.html
+  // ingredients route loads author-manager.html
   app.get("/ingredients", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/ingredients-manager.html"));
+    res.sendFile(path.join(__dirname, "../public/author-manager.html"));
   });
 };
 
