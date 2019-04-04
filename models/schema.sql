@@ -8,7 +8,6 @@ CREATE TABLE recipes (
     recipe_name VARCHAR(200) NOT NULL,
     ingredients VARCHAR(550),
     directions VARCHAR(550) NOT NULL,
-    image  VARCHAR(2083) NULL,
     PRIMARY KEY (id)
 );
 
