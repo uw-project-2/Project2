@@ -23,12 +23,12 @@ INSERT INTO recipes (recipe_name, ingredients, directions)
 
 -- TODO: '1,2,3' need to be split on the comma and conversted to an array referencing the ingredients table
 VALUES
-('test', '[{"ingredients": 1, "amount": "2 cups"},{"ingredients": 2, "amount": "1/2lb"}]', 'test direction'),
-('test2', '[{"ingredients": 3, "amount": "2 cups"},{"ingredients": 1, "amount": "1/2lb"}]', 'test2 direction'),
-('test3', '[{"ingredients": 2, "amount": "2 cups"},{"ingredients": 3, "amount": "1/2lb"}]', 'test3 direction');
+('Veggie burger', '[{"ingredients": 1, "amount": "2 cups"},{"ingredients": 2, "amount": "1/2lb"}]', 'Make the patty. Cook it.'),
+('Fish tacos', '[{"ingredients": 3, "amount": "2 cups"},{"ingredients": 1, "amount": "1/2lb"}]', 'Cook the fish. Make the tacos.'),
+('California rolls', '[{"ingredients": 2, "amount": "2 cups"},{"ingredients": 3, "amount": "1/2lb"}]', 'Cut the ingredients. Roll em.');
 
 
-INSERT INTO ingredients (ingredient_name, season)
+INSERT INTO ingredients (name, season)
 
 VALUES
 ('Apples', 'Spring'),
