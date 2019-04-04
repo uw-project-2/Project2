@@ -21,6 +21,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  //Instead of associating the tables via sequalize TODO: just use separate queries when pulling recipes or pulling ingredients for a specific recipe
   // Recipe.associate = function(models) {
   //   // We're saying that a Recipe should have an Ingredient
   //   // A Recipe can't be created without an Ingredient due to the foreign key constraint

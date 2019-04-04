@@ -11,7 +11,7 @@ module.exports = function(app) {
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Ingredient
     db.Recipe.findAll({
-      where: query,
+      where: query
     }).then(function(dbRecipe) {
       res.json(dbRecipe);
     });
@@ -25,7 +25,7 @@ module.exports = function(app) {
     db.Recipe.findOne({
       where: {
         id: req.params.id
-      },
+      }
       //include: [db.Ingredient]
     }).then(function(dbRecipe) {
       res.json(dbRecipe);
