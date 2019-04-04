@@ -12,7 +12,6 @@ module.exports = function(app) {
     // In this case, just db.Ingredient
     db.Recipe.findAll({
       where: query,
-      include: [db.Ingredient]
     }).then(function(dbRecipe) {
       res.json(dbRecipe);
     });
@@ -27,7 +26,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       },
-      include: [db.Ingredient]
+      //include: [db.Ingredient]
     }).then(function(dbRecipe) {
       res.json(dbRecipe);
     });

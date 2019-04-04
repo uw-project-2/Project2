@@ -4,7 +4,12 @@
     "password": null,
     "database": "cookbook_db",
     "host": "localhost",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "define": {
+      "createdAt": false,
+      "updatedAt": false,
+      "IngredientId": false
+    }
   },
   "test": {
     "username": "root",
