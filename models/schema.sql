@@ -28,7 +28,7 @@ VALUES
 ('test3', '[{"ingredients": 2, "amount": "2 cups"},{"ingredients": 3, "amount": "1/2lb"}]', 'test3 direction');
 
 
-INSERT INTO ingredients (ingredient_name, season)
+INSERT INTO ingredients (name, season)
 
 VALUES
 ('Apples', 'Spring'),
