@@ -17,7 +17,7 @@ if (config.use_env_variable) {
     config.database,
     config.username,
     config.password,
-    config
+    config, 
   );
 }
 
@@ -28,6 +28,8 @@ fs.readdirSync(__dirname)
     );
   })
   .forEach(function (file) {
+    //TODO: Which one?
+    //var model = sequelize["import"](path.join
     var model = sequelize.import(path.join(__dirname, file));
     db[model.name] = model;
   });
