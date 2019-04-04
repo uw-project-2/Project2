@@ -38,6 +38,7 @@ module.exports = function(sequelize, DataTypes) {
 // //------------------------------------------------------------------------
 
 // // TODO: QUERY RECIPES
+// //TODO: USE MONGODB?
 // var recipeIngredients =
 //   "[{ \"id\": 1, \"amount\": \"2 cups\"}, { \"id\": 2, \"amount\": \"1 cups\" }]";
 
