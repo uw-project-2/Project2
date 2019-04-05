@@ -21,6 +21,17 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/ingredients/:name", function(req, res) {
+    // Find ingredients by ingredient name
+    db.Ingredient.findAll({
+      where: {
+        name: req.params.name
+      }
+    }).then(function(dbIngredient) {
+      res.json(dbIngredient);
+    });
+  });
+
   app.get("/api/ingredients/:id", function(req, res) {
     // Find ingredients by unique identifier
     db.Ingredient.findAll({
