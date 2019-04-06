@@ -24,7 +24,6 @@ module.exports = function(app) {
       var ingredientID = ingredients.map(function(ingredient) {
         return ingredient.ingredients;
       });
-      //run another loop through all ingredients to add the name property
 
       db.Ingredient.findAll({
         where: {
@@ -49,10 +48,10 @@ module.exports = function(app) {
           });
         });
         console.log(fullIngredientList);
-      });
-
-      res.render("example", {
-        recipe: dbRecipe
+        res.render("example", {
+          recipe: dbRecipe,
+          ingredients: fullIngredientList
+        });
       });
     });
 

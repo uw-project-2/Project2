@@ -49,32 +49,32 @@ module.exports = function(app) {
   });
 
   // POST route for image URL===========================
-  app.post('/api/recipes/:image', function(req, res) {
-      if (!req.files)
-        return res.status(400).send('No files were uploaded.');
+  //   app.post('/api/recipes/:image', function(req, res) {
+  //       if (!req.files)
+  //         return res.status(400).send('No files were uploaded.');
 
-      var file = req.files.uploaded_image;
-      var img_name = file.name;
+  //       var file = req.files.uploaded_image;
+  //       var img_name = file.name;
 
-      if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/gif") {
-        file.mv('public/images/upload_images/' + file.name, function(err) {
+  //       if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/gif") {
+  //         file.mv('public/images/upload_images/' + file.name, function(err) {
 
-          if (err) return res.status(500).send(err);
+  //           if (err) return res.status(500).send(err);
 
-          var sql = "INSERT INTO `users_image`(`image`) VALUES ('" + img_name + "')";
-          var query = db.query(sql, function(err, result) {
-            res.redirect('profile/' + result.insertId);
-          });
-        });
-      } else {
-        message = "This format is not allowed , please upload file with '.png','.gif','.jpg'";
-        res.render('index.ejs', {
-          message: message
-        });
-    } else {
-      res.render('index');
-  }
-})
+  //           var sql = "INSERT INTO `users_image`(`image`) VALUES ('" + img_name + "')";
+  //           var query = db.query(sql, function(err, result) {
+  //             res.redirect('profile/' + result.insertId);
+  //           });
+  //         });
+  //       } else {
+  //         message = "This format is not allowed , please upload file with '.png','.gif','.jpg'";
+  //         res.render('index.ejs', {
+  //           message: message
+  //         });
+  //     } else {
+  //       res.render('index');
+  //   }
+  // })
   // END route for image URL===========================
 
   // DELETE route for deleting recipes
@@ -99,45 +99,3 @@ module.exports = function(app) {
     });
   });
 };
-
-// //------------------------------------------------------------------------
-
-// // TODO: QUERY RECIPES
-// var recipeIngredients =
-//   "[{ \"id\": 1, \"amount\": \"2 cups\"}, { \"id\": 2, \"amount\": \"1 cups\" }]";
-
-// recipeIngredients = JSON.parse(recipeIngredients);
-
-// // TODO: QUERY INGREDIENTS TABLE with recipe's ingredient id's.
-// var query = "SELECT * FROM ingredients WHERE ";
-// recipeIngredients.forEach(function(ingredient) {
-//   query += "id=" + ingredient.id + " OR ";
-// });
-
-// console.log(query);
-// // imagine query ^ retrieving ingredients from the db:
-// // TODO: ACTUALLY get this array of ingredients from the db via the above query.
-// // from db.ingredients
-// var dbIngredient = [
-//   {
-//     id: 1,
-//     name: "Salt",
-//     season: "all"
-//   },
-//   {
-//     id: 2,
-//     name: "Watermelon",
-//     season: "summer"
-//   }
-// ];
-
-// dbIngredient = dbIngredient.map(function(ingredient) {
-//   for (var i = 0; i < recipeIngredients.length; i++) {
-//     if (ingredient.id === recipeIngredients[i].id) {
-//       ingredient.amount = recipeIngredients[i].amount;
-//     }
-//   }
-//   return ingredient;
-// });
-
-// console.log(dbIngredient);
