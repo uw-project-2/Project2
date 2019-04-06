@@ -18,3 +18,7 @@ label {
 .list-group-item {
     font-weight: bold;
 }
+
+#add-new-btn {
+  margin-top: 20px;
+}

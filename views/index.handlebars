@@ -3,7 +3,7 @@
     
     <h1 class="display-4 text-center">
       <i class="fas fa-utensils"></i> </br>
-      Recipe Book</h1>
+      Harvest</h1>
   </div>
 </div>
 
@@ -43,7 +43,33 @@
             <label for="photo">Photo:</label>
             <input type="text" class="form-control" id="photo" aria-describedby="photo" placeholder="Enter a url for a photo of the recipe"> 
             <label for="ingredients">Ingredients:</label>
-            <input type="text" class="form-control" id="ingredients" aria-describedby="ingredients" placeholder="Enter the recipe's ingredients"> 
+            <div id="ingredients"></div> 
+            <label for="amount">Ingredient amount:</label>
+            <input type="text" class="form-control" id="amount" aria-describedby="amount" placeholder="The amount for this ingredient"> 
+
+            {{!-- Add new ingredient button and collapsable box for inputs --}}
+            <button class="btn btn-primary" id="add-new-btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+              Add new ingredient
+            </button>
+
+            <div class="collapse" id="collapseExample">
+              <div class="card card-body">
+                  <label for="newIngredient">New ingredient:</label>
+                  <input type="text" class="form-control" id="newIngredient" aria-describedby="newIngredient" placeholder="Enter the name of the new ingredient"> 
+                  <label for="selectSeason">New ingredient season:</label>
+                  <select multiple class="form-control" id="selectSeason">
+                    <option>Spring</option>
+                    <option>Summer</option>
+                    <option>Fall</option>
+                    <option>Winter</option>
+                    <option>Not applicable</option>
+                  </select>
+                  <label for="newAmount">New ingredient amount:</label>
+                  <input type="text" class="form-control" id="newAmount" aria-describedby="newAmount" placeholder="The amount for this new ingredient"> 
+              </div>
+            </div> </br>
+
+            
             <label for="directions">Directions:</label>
             <textarea class="form-control" id="directions" aria-describedby="directions" placeholder="Enter the recipe's directions" rows="5"></textarea> 
           </div>
@@ -58,5 +84,5 @@
   </div>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+{{!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script> --}}
