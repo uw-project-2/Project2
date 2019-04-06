@@ -74,46 +74,46 @@ $(document).ready(function () {
       $recipeList.empty();
       $recipeList.append($recipes);
     });
-
-    // handleFormSubmit is called whenever we submit a new recipe
-    // Save the new recipe to the db and refresh the list
-    var handleFormSubmit = function (event) {
-      event.preventDefault();
-
-      var recipe = {
-        recipe_name: $name.val().trim(),
-        ingredients: $ingredients.val().trim(),
-        directions: $directions.val().trim()
-      };
-
-      if (!(recipe.recipe_name && recipe.directions)) {
-        alert("You must enter a recipe name, ingredients and directions!");
-        return;
-      }
-
-      API.saveRecipe(recipe).then(function () {
-        refreshRecipes();
-      });
-
-      $name.val("");
-      $ingredients.val("");
-      $directions.val("");
-    };
-
-    // handleDeleteBtnClick is called when an recipe's delete button is clicked
-    // Remove the recipe from the db and refresh the list
-    var handleDeleteBtnClick = function () {
-      var idToDelete = $(this)
-        .parent()
-        .attr("data-id");
-
-      API.deleteRecipe(idToDelete).then(function () {
-        refreshRecipes();
-      });
-    };
-
-    // Add event listeners to the submit and delete buttons
-    $submitBtn.on("click", handleFormSubmit);
-    $recipeList.on("click", ".delete", handleDeleteBtnClick);
   };
+
+  // handleFormSubmit is called whenever we submit a new recipe
+  // Save the new recipe to the db and refresh the list
+  var handleFormSubmit = function (event) {
+    event.preventDefault();
+
+    var recipe = {
+      recipe_name: $name.val().trim(),
+      ingredients: $ingredients.val().trim(),
+      directions: $directions.val().trim()
+    };
+
+    if (!(recipe.recipe_name && recipe.directions)) {
+      alert("You must enter a recipe name, ingredients and directions!");
+      return;
+    }
+
+    API.saveRecipe(recipe).then(function () {
+      refreshRecipes();
+    });
+
+    $name.val("");
+    $ingredients.val("");
+    $directions.val("");
+  };
+
+  // handleDeleteBtnClick is called when an recipe's delete button is clicked
+  // Remove the recipe from the db and refresh the list
+  var handleDeleteBtnClick = function () {
+    var idToDelete = $(this)
+      .parent()
+      .attr("data-id");
+
+    API.deleteRecipe(idToDelete).then(function () {
+      refreshRecipes();
+    });
+  };
+
+  // Add event listeners to the submit and delete buttons
+  $submitBtn.on("click", handleFormSubmit);
+  $recipeList.on("click", ".delete", handleDeleteBtnClick);
 });
