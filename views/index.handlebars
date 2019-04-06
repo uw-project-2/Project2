@@ -12,14 +12,15 @@
 
   <div class="row">
 
-    <div class="col-sm">
-      <h2>Your Recipes</h2>
-      <ul>
-        {{#each recipes}}
-            <li>
-                <a href="/recipe/{{id}}">{{recipe_name}}</a>
-            </li>
-        {{/each}}
+    <div class="col-8 offset-2">
+      <h2><i class="fas fa-bookmark"></i> Your Recipes</h2>
+      <ul id="recipe-list" class="list-group">
+          {{#each recipes}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="recipe/{{this.id}}">{{this.recipe_name}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
       </ul>
 
     </div>
@@ -28,15 +29,16 @@
 </div>
 
 
-<div class="container text-center">
+<div class="container">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-8 offset-2">
 
-        <h2>Add a Recipe</h2>
-        <form class="create-form">
+        <h2><i class="fas fa-plus-circle"></i> Add a Recipe</h2>
+        <form class="create-form" method="POST">
 
           <div class="form-group">
             <p>Enter your recipe information and click the "Submit" button.</p>
+<<<<<<< HEAD
             <label for="ca">Name:</label> 
             <input type="text" id="ca" name="name"> </br>
             <label for="ca">Photo:</label>
@@ -44,19 +46,27 @@
             <label for="ca" id="ingredients">Ingredients:</label>
             <label for="ca">Directions:</label>
             <input type="text" id="ca" name="name">
+=======
+            <label for="name">Name:</label> 
+            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter the recipe's name"> 
+            <label for="photo">Photo:</label>
+            <input type="text" class="form-control" id="photo" aria-describedby="photo" placeholder="Enter a url for a photo of the recipe"> 
+            <label for="ingredients">Ingredients:</label>
+            <input type="text" class="form-control" id="ingredients" aria-describedby="ingredients" placeholder="Enter the recipe's ingredients"> 
+            <label for="directions">Directions:</label>
+            <textarea class="form-control" id="directions" aria-describedby="directions" placeholder="Enter the recipe's directions" rows="5"></textarea> 
+>>>>>>> master
           </div>
 
-          <button type="submit">Submit</button>
+          <button type="submit" id="submit-btn" class="btn btn-primary">Submit</button>
         </form>
+
+
+
       
     </div>
   </div>
 </div>
 
-
-
-
-
-
-
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>

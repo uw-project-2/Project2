@@ -19,6 +19,12 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false,
       len: [1]
     }
+  //,
+    // image: {
+    //   type: DataTypes.TEXT,
+    //   allowNull: true,
+    //   len: [1]
+    // }
   });
 
   //Instead of associating the tables via sequalize TODO: just use separate queries when pulling recipes or pulling ingredients for a specific recipe
@@ -34,6 +40,7 @@ module.exports = function(sequelize, DataTypes) {
 
   return Recipe;
 };
+<<<<<<< HEAD
 
 // //------------------------------------------------------------------------
 
@@ -77,3 +84,5 @@ module.exports = function(sequelize, DataTypes) {
 // });
 
 // console.log(dbIngredient);
+=======
+>>>>>>> master
