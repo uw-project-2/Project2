@@ -1,10 +1,66 @@
+/* Navigation */
+.navbar {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: .1rem;
+  background-color: #0f0e0e !important;
+}
+
+.navbar-brand img {
+  height: 3.5rem;
+}
+
+.navbar-nav li {
+  padding-right: .7rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+  padding-top: .8rem;
+}
+
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link:hover {
+  color: #ce0238;
+}
+
+#jumbotronIndex {
+  color: white;
+  background-image: url(/img/jalapenojmbtrn.png);
+  margin-top: 4rem;
+  margin-bottom: .3rem;
+}
+
 .list-group-item {
   line-height: 2.5;
+}
+
+#yourRecipes {
+  background-color: black;
+  color: white;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 #recipe-list {
   margin-top: 25px;
   margin-bottom: 25px;
+}
+
+#addRecipe {
+  background-color: black;
+  color: white;
+  margin-top: .3rem;
+  margin-bottom: .3rem;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 1rem;
+}
+
+footer {
+  background-color: black;
+  color: white;
 }
 
 h2 {
