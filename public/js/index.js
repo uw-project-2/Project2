@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // Get references to page elements
 var $name = $("#name");
 var $ingredients = $("#ingredients");
