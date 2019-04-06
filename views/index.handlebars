@@ -1,62 +1,93 @@
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    
-    <h1 class="display-4 text-center">
-      <i class="fas fa-utensils"></i> </br>
-      Recipe Book</h1>
-  </div>
-</div>
+<body data-spy="scroll" data-target="#navbarResponsive">
+  <!-- Start Home Section -->
+  <div id="home">
 
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      {{!-- <a class="navbar-brand" href="#"><img src="img/fearsomefoursome.png"></a> --}}
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-<div class="container">
-
-  <div class="row">
-
-    <div class="col-8 offset-2">
-      <h2><i class="fas fa-bookmark"></i> Your Recipes</h2>
-      <ul id="recipe-list" class="list-group">
-          {{#each recipes}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="recipe/{{this.id}}">{{this.recipe_name}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
           </li>
-          {{/each}}
-      </ul>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/uw-project-2/Project2"><i class="fab fa-github"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End Navigation -->
 
+    <div class="jumbotron jumbotron-fluid" id="jumbotronIndex">
+      <div class="container">
+
+        <h1 class="display-4 text-center">HARVEST</h1>
+        <h3 class="text-center">Recipes with seasonally relevant ingredients.</h3>
+      </div>
     </div>
 
-  </div>
-</div>
 
-
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-
-        <h2><i class="fas fa-plus-circle"></i> Add a Recipe</h2>
-        <form class="create-form" method="POST">
-
-          <div class="form-group">
-            <p>Enter your recipe information and click the "Submit" button.</p>
-            <label for="name">Name:</label> 
-            <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter the recipe's name"> 
-            <label for="photo">Photo:</label>
-            <input type="text" class="form-control" id="photo" aria-describedby="photo" placeholder="Enter a url for a photo of the recipe"> 
-            <label for="ingredients">Ingredients:</label>
-            <input type="text" class="form-control" id="ingredients" aria-describedby="ingredients" placeholder="Enter the recipe's ingredients"> 
-            <label for="directions">Directions:</label>
-            <textarea class="form-control" id="directions" aria-describedby="directions" placeholder="Enter the recipe's directions" rows="5"></textarea> 
-          </div>
-
-          <button type="submit" id="submit-btn" class="btn btn-primary">Submit</button>
-        </form>
-
-
-
-      
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center" id="yourRecipes">
+          <h2 yourRecipesList><i class="fas fa-bookmark"></i> Your Recipes</h2>
+          <ul id="recipe-list" class="list-group">
+            {{#each recipes}}
+            <li data-id="{{this.id}}" class="list-group-item">
+              <a href="recipe/{{this.id}}">{{this.recipe_name}}</a>
+              <button class="btn btn-danger float-right delete">ｘ</button>
+            </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center" id="addRecipe">
+
+          <h2><i class="fas fa-plus-circle"></i> Add a Recipe</h2>
+          <form class="create-form" method="POST">
+
+            <div class="form-group">
+              <p>Enter your recipe information and click the "Submit" button.</p>
+              <label for="name">Name:</label>
+              <input type="text" class="form-control" id="name" aria-describedby="name"
+                placeholder="Enter the recipe's name">
+              <label for="photo">Photo:</label>
+              <input type="text" class="form-control" id="photo" aria-describedby="photo"
+                placeholder="Enter a url for a photo of the recipe">
+              <label for="ingredients">Ingredients:</label>
+              <input type="text" class="form-control" id="ingredients" aria-describedby="ingredients"
+                placeholder="Enter the recipe's ingredients">
+              <label for="directions">Directions:</label>
+              <textarea class="form-control" id="directions" aria-describedby="directions"
+                placeholder="Enter the recipe's directions" rows="5"></textarea>
+            </div>
+
+            <button type="submit" id="submit-btn" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+<footer class="text-center">
+  <p>the Fearsome fearsomefoursome</p>
+  <p>University of Washington Full Stack Web Development Bootcamp: Project 2</p>
+  <p><a href="https://github.com/uw-project-2/Project2"><i class="fab fa-github"></i></a></p>
+</footer>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
