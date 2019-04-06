@@ -12,25 +12,15 @@ module.exports = function(app) {
 
   // Load recipe page and pass in a recipe by id
   app.get("/recipe/:id", function(req, res) {
-<<<<<<< HEAD
-    db.Recipe.findOne({ where: { id: req.params.id } }).then(function(
-      dbRecipe
-    ) {
-      console.log(dbRecipe.ingredients);
-=======
     db.Recipe.findOne({
       where: {
         id: req.params.id
       }
     }).then(function(dbRecipe) {
       //console.log(dbRecipe.ingredients);
->>>>>>> bb0ce2c400df52fea6c5b4fedff4e8927d9dbac5
       //create a sequelize where condition query to build an array of keys with ingredient IDs in the recipe
       var ingredients = JSON.parse(dbRecipe.ingredients);
 
-<<<<<<< HEAD
-      //run another loop through all ingredients to add the name property
-=======
       var ingredientID = ingredients.map(function(ingredient) {
         return ingredient.ingredients;
       });
@@ -60,7 +50,6 @@ module.exports = function(app) {
         });
         console.log(fullIngredientList);
       });
->>>>>>> bb0ce2c400df52fea6c5b4fedff4e8927d9dbac5
 
       res.render("example", {
         recipe: dbRecipe
