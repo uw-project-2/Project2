@@ -48,22 +48,34 @@ module.exports = function(app) {
     });
   });
 
-  // POST route for image URL
+  // POST route for image URL===========================
   app.post('/api/recipes/:image', function(req, res) {
-    if (Object.keys(req.files).length === 0) {
-      return res.status(400).send("No files were uploaded.");
-    }
+      if (!req.files)
+        return res.status(400).send('No files were uploaded.');
 
-    // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
-    let sampleFile = req.files.sampleFile;
+      var file = req.files.uploaded_image;
+      var img_name = file.name;
 
-    // Use the mv() method to place the file somewhere on your server
-    sampleFile.mv("/somewhere/on/your/server/filename.jpg", function(err) {
-      if (err) {return res.status(500).send(err);
-      }
-      res.send("File uploaded!");
-    });
-  });
+      if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/gif") {
+        file.mv('public/images/upload_images/' + file.name, function(err) {
+
+          if (err) return res.status(500).send(err);
+
+          var sql = "INSERT INTO `users_image`(`image`) VALUES ('" + img_name + "')";
+          var query = db.query(sql, function(err, result) {
+            res.redirect('profile/' + result.insertId);
+          });
+        });
+      } else {
+        message = "This format is not allowed , please upload file with '.png','.gif','.jpg'";
+        res.render('index.ejs', {
+          message: message
+        });
+    } else {
+      res.render('index');
+  }
+})
+  // END route for image URL===========================
 
   // DELETE route for deleting recipes
   app.delete("/api/recipes/:id", function(req, res) {
