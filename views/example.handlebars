@@ -4,10 +4,18 @@
       <div class="card mt-4">
         <div class="card-body">
           <h5 class="card-title">{{recipe.recipe_name}}</h5>
+
+
           <p>
             {{!-- replace this ingredients variable with a handlebars loop that will display all of the correct information  --}} 
-            <strong>Ingredients</strong>: {{recipe.ingredients}}</p>
-          <p>
+            <strong>Ingredients</strong>: 
+            {{#each ingredients}}
+              <h3>{{name}}</h3>
+              <h4>{{season}}</h4>
+              <h4>{{amount}}</h4>
+            {{/each}}
+            </p>
+
           <p>
             <strong>Directions</strong>: {{recipe.directions}}</p>
 
