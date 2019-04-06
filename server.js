@@ -4,7 +4,7 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
-
+var fileUpload = require("express-fileupload");
 var app = express();
 var PORT = process.env.PORT || 8081;
 
@@ -27,6 +27,9 @@ app.engine(
   })
 );
 app.set("view engine", "handlebars");
+
+//Image Upload
+app.use(fileUpload());
 
 // Routes
 require("./routes/ingredient-api-routes")(app);
