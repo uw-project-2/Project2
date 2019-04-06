@@ -3,7 +3,6 @@ const mysql = require("mysql");
 var keys = require("../config/keys.js");
 var connection;
 
-
 if (process.env.JAWSDB_URL) {
   connection = mysql.createConnection(process.env.JAWSDB_URL);
 } else {
