@@ -15,6 +15,7 @@ CREATE TABLE ingredients (
     id int NOT NULL AUTO_INCREMENT,
     name VARCHAR(200) NOT NULL,
     season VARCHAR(200) NULL,
+    image varchar(255) NULL,
     PRIMARY KEY (id)
 );
 
