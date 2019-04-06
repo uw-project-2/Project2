@@ -1,17 +1,18 @@
 /* eslint-disable */
 
 $(document).ready(function () {
-  console.log("ready!");
+  // console.log("ready!");
 
   $.ajax({
     type: "GET",
     url: "/api/ingredients"
   }).then(function (ingredients) {
+    // console.log("Making AJAX call");
     var options = ingredients.map(function (ingredient) {
-      return `<option value=${ingredient.name}>${ingredient.name}</option>`;
+      return `<option value="${ingredient.name}">${ingredient.name}</option>`;
     });
-    $("#ingredients").after(`<input list="options" id="test"></input>`);
-    $("#test").after(`<datalist id="options">${options}</datalist>`);
+    $("#ingredients").append(`<input class="form-control" aria-describedby="ingredients" list="options" id="ingredients-dropdown"></input>`);
+    $("#ingredients-dropdown").after(`<datalist id="options">${options}</datalist>`);
   });
 
   // Get references to page elements
@@ -116,4 +117,5 @@ $(document).ready(function () {
   // Add event listeners to the submit and delete buttons
   $submitBtn.on("click", handleFormSubmit);
   $recipeList.on("click", ".delete", handleDeleteBtnClick);
+
 });
