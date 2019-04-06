@@ -17,7 +17,6 @@ module.exports = function(sequelize, DataTypes) {
   return Ingredient;
 };
 
-
 // //------------------------------------------------------------------------
 
 // // TODO: QUERY RECIPES
