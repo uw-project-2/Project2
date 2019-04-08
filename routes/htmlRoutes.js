@@ -54,10 +54,25 @@ module.exports = function(app) {
         });
       });
     });
+  });
 
-    // Render 404 page for any unmatched routes
-    app.get("*", function(req, res) {
-      res.render("404");
-    });
+  // Load ingredient page and pass in ingredients by season
+  app.get("/ingredients/:season", function(req, res) {
+    if (req.params.season) {
+      db.Ingredient.findAll({
+        where: {
+          season: req.params.season
+        }
+      }).then(function(dbIngredient) {
+        res.render("ingredients", {
+          ingredients: dbIngredient
+        });
+      });
+    }
+  });
+
+  // Render 404 page for any unmatched routes
+  app.get("*", function(req, res) {
+    res.render("404");
   });
 };
