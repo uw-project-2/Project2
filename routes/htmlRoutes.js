@@ -71,6 +71,14 @@ module.exports = function(app) {
     }
   });
 
+  app.get("/addRecipe", function(req, res) {
+    res.render("addRecipe");
+  });
+
+  app.get("/addIngredient", function(req, res) {
+    res.render("addIngredient");
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
