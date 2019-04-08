@@ -10,6 +10,8 @@ $(document).ready(function () {
   var $submitBtn = $("#submit-btn");
   var $recipeList = $("#recipe-list");
   var $ingredient;
+  //ingredients array to push the ingredient objects (ingredient and amount) into
+  var ingredientsArray = [];
 
   //========= AJAX call to create the ingredients dropdown in the "new recipe" form ==========//
   $.ajax({
@@ -28,14 +30,40 @@ $(document).ready(function () {
   });
 
 
+  var addToIngredients = function () {
+      //grab ID of the previously selected ingredient
+      console.log("PRINTING INGREDIENT VALUE");
+      console.log($ingredient.val());
+      var ingredientSelect = $ingredient.val();
+
+      console.log("PRINTING AMOUNT");
+      console.log($amount.val());
+
+      var ingredientObj = {
+        ingredients: ingredientSelect,
+        amount: $amount.val()
+      };
+
+      ingredientsArray.push(ingredientObj);
+      console.log("PRINTING INGREDIENT ARRAY");
+      console.log(ingredientsArray);
+  };
+
+
+
+
   //JS code to allow you to add multiple ingredients
   var next = 0;
     $("#add-more").click(function(e){
         e.preventDefault();
+
+        addToIngredients();
+
+
         var addto = "#field" + next;
-        var addRemove = "#field" + (next);
+        // var addRemove = "#field" + (next);
         next = next + 1;
-        var newIn = ' <div id="field'+ next +'" name="field'+ next +'"><label for="ingredients">Ingredient:</label><div id="ingredients'+ next +'"></div><label for="amount">Ingredient amount:</label><input type="text" class="form-control" id="amount" aria-describedby="amount" placeholder="The amount for this ingredient">';
+        var newIn = ' <div id="field'+ next +'" name="field'+ next +'"><label for="ingredients">Ingredient:</label><div id="ingredients'+ next +'"></div><label for="amount">Ingredient amount:</label><input type="text" class="form-control" id="amount'+ next +'" aria-describedby="amount" placeholder="The amount for this ingredient">';
         var newInput = $(newIn);
         // var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >Remove</button></div></div><div id="field">';
         // var removeButton = $(removeBtn);
@@ -62,10 +90,13 @@ $(document).ready(function () {
             // return `<option id="ingredient-select" value="${ingredient.name}">${ingredient.id}</option>`;
             return `<option id="ingredient-select" value="${ingredient.id}">${ingredient.name}</option>`;
           });
-          $("#ingredients"+ next).append(`<input class="form-control" aria-describedby="ingredients" list="options" id="ingredients-dropdown"></input>`);
-          $("#ingredients-dropdown").after(`<datalist id="options">${options}</datalist>`);
+          $("#ingredients"+ next).append('<input class="form-control" aria-describedby="ingredients" list="options" id="ingredients-dropdown'+ next +'"></input>');
+          $("#ingredients-dropdown"+ next).after(`<datalist id="options">${options}</datalist>`);
 
-          $ingredient = $("#ingredients-dropdown");
+          //Update $ingredient and $amount variables so they are ready to push to the ingredientsArray
+          $ingredient = $("#ingredients-dropdown"+ next);
+          $amount = $("#amount"+ next);
+
         });
 
     });
@@ -133,23 +164,9 @@ $(document).ready(function () {
   var handleFormSubmit = function (event) {
     event.preventDefault();
 
-    //find the corresponding key for the selected ingredient
-    console.log("PRINTING INGREDIENT VALUE");
-    console.log($ingredient.val());
-    var ingredientSelect = $ingredient.val();
-
-    console.log("PRINTING AMOUNT");
-    console.log($amount.val());
-
-    var ingredientObj = {
-      ingredients: ingredientSelect,
-      amount: $amount.val()
-    };
-
-    //create ingredients array to push the ingredient object into
-    var ingredientsArray = [];
-    ingredientsArray.push(ingredientObj);
-
+    //push the last ingredient and amount added to the ingredientsArray
+    addToIngredients();
+  
 
     //FIXME: Ingredient IDs for new recipes are store as strings, not integers, so the backend code that JSON parses the recipe info to display on the recipe/example page needs to parseInt the ID?
 
