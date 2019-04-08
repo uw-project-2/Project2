@@ -64,8 +64,25 @@ module.exports = function(app) {
           season: req.params.season
         }
       }).then(function(dbIngredient) {
-        res.render("ingredients", {
+        res.render("example", {
           ingredients: dbIngredient
+        });
+      });
+    }
+  });
+
+  //FIXME: Ensure this is working properly
+  // Load all recipes associated with a specific ingredient
+  //app.get("/ingredients/:season/:name", function (req, res) {
+  app.get("/recipes/:name", function(req, res) {
+    if (req.params.season) {
+      db.Recipe.findAll({
+        where: {
+          ingredients: req.params.name
+        }
+      }).then(function(dbRecipes) {
+        res.render("example", {
+          recipes: dbRecipes
         });
       });
     }
