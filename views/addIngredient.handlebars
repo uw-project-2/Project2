@@ -1,0 +1,26 @@
+ <div class="container">
+      <div class="row">
+        <div class="col-12" id="addRecipe">
+          <h2>Add an Ingredient</h2>
+          <form class="create-form" method="POST">
+
+              {{!-- Form group  --}}
+              <div class="form-group">
+              <p>Enter your ingredient information and click the "Submit" button.</p>
+              <label for="newIngredient">New ingredient:</label>
+                    <input type="text" class="form-control" id="newIngredient" aria-describedby="newIngredient" placeholder="Enter the name of the new ingredient"> 
+                    <label for="selectSeason">New ingredient season:</label>
+                    <select class="form-control" id="selectSeason">
+                        <option>Spring</option>
+                        <option>Summer</option>
+                        <option>Fall</option>
+                        <option>Winter</option>
+                        <option>Not applicable</option>
+                    </select>
+            </div>
+
+            <button type="submit" id="ingredient-submit-btn" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
