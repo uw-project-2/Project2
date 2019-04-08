@@ -8,10 +8,18 @@ $(document).ready(function () {
   var $amount = $("#amount");
   var $directions = $("#directions");
   var $submitBtn = $("#submit-btn");
+  var $ingredientSubmit = $("#ingredient-submit-btn");
   var $recipeList = $("#recipe-list");
   var $ingredient;
   //ingredients array to push the ingredient objects (ingredient and amount) into
   var ingredientsArray = [];
+
+  // variabled for adding new ingredients
+  var $ingredientName = $("#newIngredient");
+  var $ingredientSeason = $("#selectSeason");
+  
+  
+
 
   //========= AJAX call to create the ingredients dropdown in the "new recipe" form ==========//
   $.ajax({
@@ -116,6 +124,16 @@ $(document).ready(function () {
         data: JSON.stringify(recipe)
       });
     },
+    saveIngredient: function (ingredient) {
+      return $.ajax({
+        headers: {
+          "Content-Type": "application/json"
+        },
+        type: "POST",
+        url: "api/ingredients",
+        data: JSON.stringify(ingredient)
+      });
+    },
     getRecipes: function () {
       return $.ajax({
         url: "api/recipes",
@@ -129,6 +147,9 @@ $(document).ready(function () {
       });
     }
   };
+
+  
+
 
   // refreshRecipes gets new recipes from the db and repopulates the list
   var refreshRecipes = function () {
@@ -159,8 +180,8 @@ $(document).ready(function () {
     });
   };
 
-  // handleFormSubmit is called whenever we submit a new recipe ==========================//
-  // Save the new recipe to the db and refresh the list
+  //  =============== handleFormSubmit is called whenever we submit a new recipe ==========================//
+  // Save the new recipe to the db 
   var handleFormSubmit = function (event) {
     event.preventDefault();
 
@@ -192,7 +213,40 @@ $(document).ready(function () {
     $ingredient.val("");
     $amount.val("");
     $directions.val("");
+
+    alert("Your recipe has been added!");
   };
+
+
+  // =============== handleIngredientSubmit is called whenever we submit a new ingredient ==========================//
+  // Save the new ingredient to the db
+  var handleIngredientSubmit = function (event) {
+    event.preventDefault();
+
+  
+    var ingredient = {
+      name: $ingredientName.val().trim(),
+      season: $ingredientSeason.val()
+    };
+
+    console.log("NEW INGREDIENT INFO");
+    console.log(ingredient);
+
+    if (!(ingredient.name && ingredient.season)) {
+      alert("You must enter an ingredient name and season!");
+      return;
+    }
+
+    API.saveIngredient(ingredient).then(function () {
+      alert("Your recipe has been added!");
+    });
+
+    $ingredientName.val("");
+    $ingredientSeason.val("");
+
+  };
+
+
 
   // handleDeleteBtnClick is called when an recipe's delete button is clicked
   // Remove the recipe from the db and refresh the list
@@ -206,8 +260,9 @@ $(document).ready(function () {
     });
   };
 
-  // Add event listeners to the submit and delete buttons
+  // Add event listeners to the buttons
   $submitBtn.on("click", handleFormSubmit);
-  $recipeList.on("click", ".delete", handleDeleteBtnClick);
+  $ingredientSubmit.on("click", handleIngredientSubmit);
+  // $recipeList.on("click", ".delete", handleDeleteBtnClick);
 
 });
