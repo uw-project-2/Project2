@@ -47,34 +47,39 @@ module.exports = function(app) {
     });
   });
 
-  // POST route for image URL===========================
-  //   app.post('/api/recipes/:image', function(req, res) {
-  //       if (!req.files)
-  //         return res.status(400).send('No files were uploaded.');
+  //========================================================================
+  //IMAGE UPLOAD
+  //========================================================================
+  const multer = require("multer");
+  const path = require("path");
 
-  //       var file = req.files.uploaded_image;
-  //       var img_name = file.name;
+  const DIR = "./public/uploads";
 
-  //       if (file.mimetype == "image/jpeg" || file.mimetype == "image/png" || file.mimetype == "image/gif") {
-  //         file.mv('public/images/upload_images/' + file.name, function(err) {
+  let storage = multer.diskStorage({
+    destination: function(req, file, callback) {
+      callback(null, DIR);
+    },
+    filename: function(req, file, cb) {
+      cb(
+        null,
+        file.fieldname + "-" + Date.now() + path.extname(file.originalname)
+      );
+    }
+  });
 
-  //           if (err) return res.status(500).send(err);
-
-  //           var sql = "INSERT INTO `users_image`(`image`) VALUES ('" + img_name + "')";
-  //           var query = db.query(sql, function(err, result) {
-  //             res.redirect('profile/' + result.insertId);
-  //           });
-  //         });
-  //       } else {
-  //         message = "This format is not allowed , please upload file with '.png','.gif','.jpg'";
-  //         res.render('index.ejs', {
-  //           message: message
-  //         });
-  //     } else {
-  //       res.render('index');
-  //   }
-  // })
-  // END route for image URL===========================
+  let upload = multer({
+    storage: storage
+  });
+  app.put("/api/recipes/upload", upload.single("profile"), function(req, res) {
+    db.Recipe.update(req.body, {
+      where: {
+        image: req.body.image
+      }
+    }).then(function(dbRecipe) {
+      res.json(dbRecipe);
+    });
+  });
+  //========================================================================
 
   // DELETE route for deleting recipes
   app.delete("/api/recipes/:id", function(req, res) {

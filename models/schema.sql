@@ -8,6 +8,7 @@ CREATE TABLE recipes (
     recipe_name VARCHAR(200) NOT NULL,
     ingredients VARCHAR(550),
     directions VARCHAR(550) NOT NULL,
+    image varchar(255) NOT NULL,
     PRIMARY KEY (id)
 );
 
@@ -15,7 +16,6 @@ CREATE TABLE ingredients (
     id int NOT NULL AUTO_INCREMENT,
     name VARCHAR(200) NOT NULL,
     season VARCHAR(200) NULL,
-    image varchar(255) NULL,
     PRIMARY KEY (id)
 );
 
