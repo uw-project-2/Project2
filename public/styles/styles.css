@@ -115,6 +115,31 @@ h5.card-title {
   background-color: #29abe2;
 }
 
+/* ============================================================================== */
+/* 404 PAGE */
+
+#body404 {
+  background-color: #3b3d3f;
+}
+
+#jumbotron404 {
+  color: white;
+  background-image: url(/img/404jumbotron.png);
+  text-align: center;
+  margin-top: 15% !important;
+}
+
+#toHome {
+  color: white;
+  
+
+}
+
+#toHome:hover {
+  color: #EAC807;
+  
+}
+
 /* #selectSeason {
   height: 110px;
 } */

@@ -1,8 +1,51 @@
-<div class="container">
-  <div class="jumbotron mt-4">
-    <h1 class="display-4 text-center">404 Not Found
-      <span role="img" aria-label="Face with rolling eyes">🙄</span>
-    </h1>
-    <a href="/">← Back To Home</a>
+<container>
+  <header>
+    
+  </header>
+
+
+
+<body id="body404" data-target="#navbarResponsive">
+  <!-- Start Home Section -->
+  <div id="home">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      {{!-- <a class="navbar-brand" href="#"><img src="img/fearsomefoursome.png"></a> --}}
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="../views/index.handlebars">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/uw-project-2/Project2"><i class="fab fa-github fa-2x"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- End Navigation -->
+
+  <div class="container">
+    <div class="jumbotron mt-4" id="jumbotron404">
+       <h1 class="display-4 text-center">TOO HOT TO HANDLE</h1>
+      <h3 class="text-center">ERROR 404</h3>
+      <a id="toHome" href="/">Back To Home</a>
+    </div>
   </div>
-</div>
+
+  <footer class="text-center">
+  <h6>the fearsome foursome</h6>
+  <h6>University of Washington Full Stack Web Development Bootcamp: Project 2</h6>
+  <h6><a id="footerGithub" href="https://github.com/uw-project-2/Project2"><i class="fab fa-github fa-2x"></i></a></h6>
+</footer>
+</container>
