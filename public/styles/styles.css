@@ -1,14 +1,14 @@
 body {
-  background-color: #0f0e0e;
+  /* background-color: #0f0e0e; */
 }
 
 /* Navigation */
 .navbar {
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
   font-weight: 700;
   font-size: .9rem;
   letter-spacing: .1rem;
-  background-color: #0f0e0e !important;
+  background-color: white !important;
 }
 
 .navbar-brand img {
@@ -20,13 +20,17 @@ body {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-  color: white;
+  color:  #666666;
   padding-top: .8rem;
+}
+
+.navbar-dark .navbar-brand {
+  color: #22b573;
 }
 
 .navbar-dark .navbar-nav .nav-link.active,
 .navbar-dark .navbar-nav .nav-link:hover {
-  color: #ce0238;
+  color: #22b573;
 }
 
 #jumbotronIndex {
@@ -41,8 +45,8 @@ body {
 }
 
 #yourRecipes {
-  background-color: #0f0e0e;
-  color: white;
+  /* background-color: #0f0e0e; */
+  color:  #666666;
   padding-left: 0;
   padding-right: 0;
 }
@@ -53,8 +57,8 @@ body {
 }
 
 #addRecipe {
-  background-color: #0f0e0e;
-  color: white;
+  /* background-color: #0f0e0e; */
+  color:  #666666;
   margin-top: .3rem;
   margin-bottom: .3rem;
   padding-left: 0;
@@ -63,12 +67,13 @@ body {
 }
 
 footer {
-  background-color: #0f0e0e;
-  color: white;
+  /* background-color: #0f0e0e; */
+  color: #666666;
 }
 
-h2 {
+h2, h3, h4 {
   margin-top: 20px;
+  color: #666666;
 }
 
 label {
@@ -81,4 +86,31 @@ label {
 
 #add-new-btn {
   margin-top: 20px;
+}
+
+
+.season-card {
+  min-width: 15rem;
+  min-height: 10rem;
+  margin-top: 20px;
+}
+
+h5.card-title {
+  margin-top: 43px;
+}
+
+#spring-card {
+  background-color: #22b573;
+}
+
+#summer-card {
+  background-color: #dfaa42;
+}
+
+#fall-card {
+  background-color: #f15a24;
+}
+
+#winter-card {
+  background-color: #29abe2;
 }
