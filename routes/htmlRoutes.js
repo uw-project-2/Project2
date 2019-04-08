@@ -20,6 +20,17 @@ module.exports = function(app) {
       //console.log(dbRecipe.ingredients);
       //create a sequelize where condition query to build an array of keys with ingredient IDs in the recipe
       var ingredients = JSON.parse(dbRecipe.ingredients);
+      //TODO: create parse int for the imgredient id
+      //   , function(key, value) {
+      //   ingredients.parseInt("ingredients:");
+      //   if (key == "ingredients:") return new Number(value);
+      //   return value;
+      // });
+      //var ingredientsInt = JSON.parseInt("ingredients");
+      // void setup() {`
+      //   json = loadJSONObject(dbRecipe.ingredients);
+      //   int ingredients = jsonObj.getInt("ingredients")
+      // }
 
       var ingredientID = ingredients.map(function(ingredient) {
         return ingredient.ingredients;
