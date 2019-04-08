@@ -1,43 +1,54 @@
-<body data-spy="scroll" data-target="#navbarResponsive">
-  <!-- Start Home Section -->
-  <div id="home">
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      {{!-- <a class="navbar-brand" href="#"><img src="img/fearsomefoursome.png"></a> --}}
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/uw-project-2/Project2"><i class="fab fa-github"></i></a>
-          </li>
-        </ul>
+<div class="container">
+      <div class="row">
+        <div class="col-12 text-center" id="home-header">
+          <h2>It's time to harvest!</h2>
+          <h4>Select a season</h4>
+        </div>
       </div>
-    </nav>
-    <!-- End Navigation -->
+</div>
 
-    <div class="jumbotron jumbotron-fluid" id="jumbotronIndex">
-      <div class="container">
-
-        <h1 class="display-4 text-center">HARVEST</h1>
-        <h3 class="text-center">Recipes with seasonally relevant ingredients.</h3>
-      </div>
+<div class="container">
+    <div class="row">
+        <div class="card-deck text-center mx-auto">
+          <a href = "/ingredients/Spring">
+            <div id="spring-card" class="card text-white mb-3 season-card" style="max-width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Spring</h5>
+              </div>
+            </div>
+          </a>
+          <a href = "/ingredients/Summer">
+            <div id="summer-card" class="card text-white mb-3 season-card" style="max-width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Summer</h5>
+              </div>
+            </div>
+          </a>
+        </div>
     </div>
+    <div class="row">
+        <div class="card-deck text-center mx-auto">
+          <a href = "/ingredients/Fall">
+            <div id="fall-card" class="card text-white mb-3 season-card" style="max-width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Fall</h5>
+              </div>
+            </div>
+          </a>
+          <a href = "/ingredients/Winter">
+            <div id="winter-card" class="card text-white mb-3 season-card" style="max-width: 18rem;">
+              <div class="card-body">
+                <h5 class="card-title">Winter</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+    </div>
+</div>
 
 
-    <div class="container">
+    {{!-- <div class="container">
       <div class="row">
         <div class="col-12 text-center" id="yourRecipes">
           <h2 yourRecipesList><i class="fas fa-bookmark"></i> Your Recipes</h2>
@@ -51,7 +62,7 @@
           </ul>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <div class="container">
       <div class="row">
@@ -67,27 +78,23 @@
               <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter the recipe's name">
 
               <label for="photo">Photo:</label>
-              <form action="/api/recipes/upload" method="POST" enctype="multipart/form-data">
-                <div class="file-field input-field">
-                  <div class="btn grey">
-                    <span>File</span>
-                    <input name="recipeImage" type="file">
-                  </div>
-                  <div class="file-path-wrapper">
-                      <input type="text" class="form-control" id="photo" aria-describedby="photo" placeholder="Enter a url for a photo of the recipe">
-                  </div>
-                </div>
-                <button type="submit" class="btn">Upload</button>
-              </form><br/>
+              <input type="text" class="form-control" id="photo" aria-describedby="photo" placeholder="Enter a url for a photo of the recipe">
 
-              <label for="ingredients">Ingredients:</label>
-              <div id="ingredients"></div>
-              <label for="amount">Ingredient amount:</label>
-              <input type="text" class="form-control" id="amount" aria-describedby="amount" placeholder="The amount for this ingredient">
+              <div id="field">
+              <div id="field0">
+                  <label for="ingredients">Ingredient:</label>
+                  <div id="ingredients"></div>
+                  <label for="amount">Ingredient amount:</label>
+                  <input type="text" class="form-control" id="amount" aria-describedby="amount" placeholder="The amount for this ingredient"> 
+              </div>
+              </div>
+
+              {{!-- add another ingredient button --}}
+              <br><button id="add-more" name="add-more" class="btn btn-primary">Add another ingredient</button><br>
 
               {{!-- Add new ingredient button and collapsable box for inputs --}}
               <button class="btn btn-primary" id="add-new-btn" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Add new ingredient
+                Missing ingredient? Add a new one!
               </button>
 
               <div class="collapse" id="collapseExample">
@@ -117,6 +124,7 @@
         </div>
       </div>
     </div>
+<<<<<<< HEAD
 
     <footer class="text-center">
       <p>the Fearsome fearsomefoursome</p>
@@ -126,3 +134,5 @@
 
     {{!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/js/index.js"></script> --}}
+=======
+>>>>>>> master
