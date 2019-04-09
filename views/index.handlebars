@@ -78,14 +78,25 @@
               <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter the recipe's name">
 
               <label for="photo">Photo:</label>
-              <input type="text" class="form-control" id="photo" aria-describedby="photo" placeholder="Enter a url for a photo of the recipe">
+              <form action="/api/recipes/upload" method="POST" enctype="multipart/form-data">
+                <div class="file-field input-field">
+                  <div class="btn grey">
+                    <span>File</span>
+                    <input name="recipeImage" type="file">
+                  </div>
+                  <div class="file-path-wrapper">
+                      <input type="text" class="form-control" id="photo" aria-describedby="photo" placeholder="Enter a url for a photo of the recipe">
+                  </div>
+                </div>
+                <button type="submit" class="btn">Upload</button>
+              </form><br/>
 
               <div id="field">
               <div id="field0">
                   <label for="ingredients">Ingredient:</label>
                   <div id="ingredients"></div>
                   <label for="amount">Ingredient amount:</label>
-                  <input type="text" class="form-control" id="amount" aria-describedby="amount" placeholder="The amount for this ingredient"> 
+                  <input type="text" class="form-control" id="amount" aria-describedby="amount" placeholder="The amount for this ingredient">
               </div>
               </div>
 
@@ -124,7 +135,7 @@
         </div>
       </div>
     </div>
-<<<<<<< HEAD
+
 
     <footer class="text-center">
       <p>the Fearsome fearsomefoursome</p>
@@ -134,5 +145,3 @@
 
     {{!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="/js/index.js"></script> --}}
-=======
->>>>>>> master
