@@ -54,6 +54,17 @@ module.exports = function(app) {
     });
   });
 
+  // app.post("/api/new", function(req, res) {
+  //   db.Recipe.create({
+  //     name: req.body.recipe_name
+  // //  photo: req.body.image
+  //     ingredients: req.body.ingredients.name
+  //     directions: req.body.directions
+  //   }).then(function(dbRecipe) {
+  //     res.json(dbRecipe);
+  //   });
+  // });
+
   app.delete("/api/ingredients/:id", function(req, res) {
     db.Ingredient.destroy({
       where: {

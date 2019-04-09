@@ -2,10 +2,17 @@ require("dotenv").config();
 
 var express = require("express");
 var exphbs = require("express-handlebars");
-var db = require("./models");
 var bodyParser = require("body-parser");
+var db = require("./models");
+
 var app = express();
 var PORT = process.env.PORT || 8081;
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }))
+// parse application/json
+app.use(bodyParser.json())
+
 
 // Middleware
 app.use(
@@ -13,15 +20,10 @@ app.use(
     extended: true
   })
 );
-app.use(express.json());
+// app.use(express.json());
 
 //Static Directory
 app.use(express.static("public"));
-
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }));
-// parse application/json
-app.use(bodyParser.json());
 
 // Handlebars
 app.engine(
