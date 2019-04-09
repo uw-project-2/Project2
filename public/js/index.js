@@ -3,6 +3,9 @@
 $(document).ready(function () {
   console.log("ready!");
 
+  //activate chosen dropdown menu plugin
+  // $(".chosen-select").chosen();
+
   // Get references to page elements and declare global ariables
   var $name = $("#name");
   var $amount = $("#amount");
@@ -11,6 +14,8 @@ $(document).ready(function () {
   var $ingredientSubmit = $("#ingredient-submit-btn");
   var $recipeList = $("#recipe-list");
   var $ingredient;
+  var ingredientVal;
+
   //ingredients array to push the ingredient objects (ingredient and amount) into
   var ingredientsArray = [];
 
@@ -26,15 +31,28 @@ $(document).ready(function () {
     type: "GET",
     url: "/api/ingredients"
   }).then(function (ingredients) {
-    // console.log("Making AJAX call");
+    // console.log("PRINTING INGREDIENTS");
+    // console.log(ingredients);
+    console.log("Making AJAX call");
     var options = ingredients.map(function (ingredient) {
       // return `<option id="ingredient-select" value="${ingredient.name}">${ingredient.id}</option>`;
-      return `<option id="ingredient-select" value="${ingredient.id}">${ingredient.name}</option>`;
+      return `<option value="${ingredient.id}">${ingredient.name}</option>`;
     });
-    $("#ingredients").append(`<input class="form-control" aria-describedby="ingredients" list="options" id="ingredients-dropdown"></input>`);
-    $("#ingredients-dropdown").after(`<datalist id="options">${options}</datalist>`);
+    // console.log("PRINTING OPTIONS ARRAY");
+    // console.log(options);
+
+    var optionsString = options.join("");
+    // console.log("PRINTING OPTIONS STRING");
+    // console.log(optionsString);
+
+    // $("#ingredients").append(`<input class="form-control" aria-describedby="ingredients" list="options" id="ingredients-dropdown"></input>`);
+    // $("#ingredients-dropdown").after(`<datalist id="options">${options}</datalist>`);
+
+    // $("#ingredients").append(`<select class="form-control" id="ingredients-dropdown"></select>`);
+    $("#ingredients-dropdown").append(optionsString);
 
     $ingredient = $("#ingredients-dropdown");
+    ingredientVal = $("#ingredients-dropdown :selected").text();
   });
 
 
@@ -42,7 +60,10 @@ $(document).ready(function () {
       //grab ID of the previously selected ingredient
       console.log("PRINTING INGREDIENT VALUE");
       console.log($ingredient.val());
+      console.log(ingredientVal);
+      
       var ingredientSelect = $ingredient.val();
+
 
       console.log("PRINTING AMOUNT");
       console.log($amount.val());
