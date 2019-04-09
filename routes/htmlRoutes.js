@@ -20,7 +20,7 @@ module.exports = function (app) {
       //console.log(dbRecipe.ingredients);
       //create a sequelize where condition query to build an array of keys with ingredient IDs in the recipe
       var ingredients = JSON.parse(dbRecipe.ingredients);
-      //TODO: create parse int for the imgredient id
+      //TODO: create parse int for the ingredient id
       //   , function(key, value) {
       //   ingredients.parseInt("ingredients:");
       //   if (key == "ingredients:") return new Number(value);
@@ -107,10 +107,13 @@ module.exports = function (app) {
     if (req.params.ingredient_id) {
       db.Recipe.findAll({
         where: {
-          ingredients: {
-            [db.Sequelize.Op.like]: `%${req.params.ingredient_id}%`
-          }
+          ingredients: req.params.ingredient_id
         }
+        // where: {
+        //   ingredients: {
+        //     [db.Sequelize.Op.like]: `%${req.params.ingredient_id}%`
+        //   }
+        // }
       }).then(function (dbRecipe) {
         //console.log(dbRecipe.ingredients);
         //create a sequelize where condition query to build an array of keys with ingredient IDs in the recipe
