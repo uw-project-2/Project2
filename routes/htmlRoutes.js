@@ -17,38 +17,25 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbRecipe) {
-      //console.log(dbRecipe.ingredients);
       //create a sequelize where condition query to build an array of keys with ingredient IDs in the recipe
-      var ingredients = JSON.parse(dbRecipe.ingredients);
-      parseInt("2");
-      //TODO: create parse int for the ingredient id
-      //   , function(key, value) {
-      //   ingredients.parseInt("ingredients:");
-      //   if (key == "ingredients:") return new Number(value);
-      //   return value;
-      // });
-      //var ingredientsInt = JSON.parseInt("ingredients");
-      // void setup() {`
-      //   json = loadJSONObject(dbRecipe.ingredients);
-      //   int ingredients = jsonObj.getInt("ingredients")
-      // }
+      var recipeIngredients = JSON.parse(dbRecipe.ingredients);
 
-      var ingredientID = ingredients.map(function(ingredient) {
-        return ingredient.ingredients;
+      // Creates a new array of just ingredient id's.
+      var recipeIngredientIds = recipeIngredients.map(function(ingredientObj) {
+        return parseInt(ingredientObj.ingredients); // '.ingredients' is actually the id of this ingredient.
       });
 
       db.Ingredient.findAll({
         where: {
           id: {
-            [db.Sequelize.Op.in]: ingredientID
+            [db.Sequelize.Op.in]: recipeIngredientIds
           }
         }
-      }).then(function(result) {
+      }).then(function(dbIngredients) {
         const fullIngredientList = [];
-        result.forEach(ingredient => {
-          console.log(ingredient);
-          ingredients.forEach(recipeIngredient => {
-            console.log(recipeIngredient);
+        dbIngredients.forEach(ingredient => {
+          // sync each ingredient with recipe ingredient
+          recipeIngredients.forEach(recipeIngredient => {
             if (ingredient.id === recipeIngredient.ingredients) {
               fullIngredientList.push({
                 id: ingredient.id,
@@ -59,10 +46,10 @@ module.exports = function(app) {
             }
           });
         });
-        console.log(fullIngredientList);
+        // Overwrite recipe ingredients array with the full list of ingredients i.e. includes the ingredient info plus the recipe amount.
+        dbRecipe.ingredients = fullIngredientList;
         res.render("example", {
-          recipe: dbRecipe,
-          ingredients: fullIngredientList
+          recipe: dbRecipe
         });
       });
     });
@@ -83,76 +70,20 @@ module.exports = function(app) {
     }
   });
 
-  //FIXME: Ensure this is working properly
-  // Load all recipes associated with a specific ingredient
-  // app.get("/recipes/:ingredient_id", function (req, res) {
-  //   if (req.params.ingredient_id) {
-  //     db.Recipe.findAll({
-  //       where: {
-  //         ingredients: {
-  //           [db.Sequelize.Op.like]: `%${req.params.ingredient_id}%`
-  //         }
-  //       }
-  //     }).then(function (dbRecipes) {
-  //       console.log(dbRecipes);
-  //       res.render("example", {
-  //         recipes: dbRecipes
-  //       });
-  //     });
-  //   }
-  // });
-
   app.get("/recipes/:ingredient_id", function(req, res) {
     if (req.params.ingredient_id) {
       var recipeArray = [];
       db.Recipe.findAll({}).then(function(dbRecipes) {
-        //console.log(dbRecipes);
         dbRecipes.forEach(function(recipe) {
-          //console.log(recipe.dataValues);
           JSON.parse(recipe.dataValues.ingredients).forEach(function(
             ingredient
           ) {
-            console.log(ingredient);
-            if (ingredient.ingredients === req.params.ingredient_id) {
+            if (ingredient.ingredients === parseInt(req.params.ingredient_id)) {
               recipeArray.push(recipe);
             }
           });
         });
         res.json(recipeArray);
-        /*
-        //create a sequelize where condition query to build an array of keys with ingredient IDs in the recipe
-        var ingredients = JSON.parse(dbRecipe.ingredients);
-
-        var recipeID = ingredients.map(function (ingredient) {
-          return ingredient.ingredients;
-        });
-
-        db.Ingredient.findAll({
-          where: {
-            id: {
-              [db.Sequelize.Op.in]: recipeID
-            }
-          }
-        }).then(function (result) {
-          const fullRecipeList = [];
-          result.forEach(ingredient => {
-            console.log(ingredient);
-            ingredients.forEach(recipeIngredient => {
-              console.log(recipeIngredient);
-              if (ingredient.id === recipeIngredient.ingredients) {
-                fullRecipeList.push({
-                  id: ingredient.id,
-                  name: ingredient.name
-                });
-              }
-            });
-          });
-          console.log(fullRecipeList);
-          res.render("example", {
-            recipe: dbRecipe,
-            ingredients: fullRecipeList
-          });
-        });*/
       });
     }
   });
