@@ -9,10 +9,9 @@ var app = express();
 var PORT = process.env.PORT || 8081;
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
-app.use(bodyParser.json())
-
+app.use(bodyParser.json());
 
 // Middleware
 app.use(
