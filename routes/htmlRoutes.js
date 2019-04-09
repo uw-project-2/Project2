@@ -86,10 +86,10 @@ module.exports = function(app) {
   // Load all recipes associated with a specific ingredient
   //app.get("/ingredients/:season/:name", function (req, res) {
   app.get("/recipes/:name", function(req, res) {
-    if (req.params.season) {
+    if (req.params.name) {
       db.Recipe.findAll({
         where: {
-          ingredients: req.params.name
+          recipe_name: req.params.recipe_name
         }
       }).then(function(dbRecipes) {
         res.render("example", {

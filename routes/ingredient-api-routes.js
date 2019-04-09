@@ -54,6 +54,13 @@ module.exports = function(app) {
     });
   });
 
+  // POST route for saving a new ingredient
+  app.post("/api/ingredients", function(req, res) {
+    db.Recipe.create(req.body).then(function(dbIngredient) {
+      res.json(dbIngredient);
+    });
+  });
+
   // app.post("/api/new", function(req, res) {
   //   db.Recipe.create({
   //     name: req.body.recipe_name
