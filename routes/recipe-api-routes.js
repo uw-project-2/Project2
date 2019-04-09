@@ -42,17 +42,17 @@ module.exports = function(app) {
 
   //FIXME: Do I need to set parameters to ingredients?
   // If user searches by name of ingredient grab all recipes with that ingredient
-  app.get("/api/recipes/:name", function(req, res) {
-    if (req.params.recipe_name) {
-      db.Recipe.findAll({
-        where: {
-          recipe_name: req.params.recipe_name
-        }
-      }).then(function(dbRecipe) {
-        res.json(dbRecipe);
-      });
-    }
-  });
+  // app.get("/api/recipes/:name", function(req, res) {
+  //   if (req.params.recipe_name) {
+  //     db.Recipe.findAll({
+  //       where: {
+  //         recipe_name: req.params.recipe_name
+  //       }
+  //     }).then(function(dbRecipe) {
+  //       res.json(dbRecipe);
+  //     });
+  //   }
+  // });
 
   // POST route for saving a new recipe
   app.post("/api/recipes", function(req, res) {
