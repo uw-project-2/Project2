@@ -7,14 +7,23 @@
     "test": "test"
   },
   "dependencies": {
+<<<<<<< HEAD
     "JSON": "^1.0.0",
+=======
+    "body-parser": "^1.18.3",
+>>>>>>> master
     "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "express-fileupload": "^1.1.4",
     "express-handlebars": "^3.0.2",
+    "multer": "^1.4.1",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.5",
     "nodemon": "^1.18.11",
+<<<<<<< HEAD
+=======
+    "path": "^0.12.7",
+>>>>>>> master
     "sequelize": "^4.43.1"
   },
   "devDependencies": {
