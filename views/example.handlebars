@@ -5,7 +5,7 @@
         <div class="card-body">
           <h5 class="card-title">{{recipe.recipe_name}}</h5>
 
-          <img class="recipe-full-image" src="{{recipe.recipeImage}}"/>
+          <img src="/uploads/{{recipe.recipeImage}}" class="recipe-full-image"/>
           <p>
             {{!-- replace this ingredients variable with a handlebars loop that will display all of the correct information  --}}
             <strong>Ingredients</strong>:
@@ -15,10 +15,10 @@
           </p>
 
 
-          
-          {{!-- replace this ingredients variable with a handlebars loop that will display all of the correct information  --}} 
+
+          {{!-- replace this ingredients variable with a handlebars loop that will display all of the correct information  --}}
           {{!-- <p>
-          <strong>Recipes</strong>: 
+          <strong>Recipes</strong>:
           {{#each recipes}}
             <h3>{{recipe_name}}</h3>
           {{/each}}
