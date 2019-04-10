@@ -24,9 +24,9 @@ INSERT INTO recipes (recipe_name, ingredients, directions, recipeImage)
 
 -- TODO: '1,2,3' need to be split on the comma and conversted to an array referencing the ingredients table
 VALUES
-('Veggie burger', '[{"ingredients": 1, "amount": "2 cups"},{"ingredients": 2, "amount": "1/2lb"}]', 'Make the patty. Cook it.', '/uploads/img.png'),
-('Fish tacos', '[{"ingredients": 3, "amount": "2 cups"},{"ingredients": 1, "amount": "1/2lb"}]', 'Cook the fish. Make the tacos.', '/uploads/img.png'),
-('California rolls', '[{"ingredients": 2, "amount": "2 cups"},{"ingredients": 3, "amount": "1/2lb"}]', 'Cut the ingredients. Roll em.', '/uploads/img.png');
+('Veggie burger', '[{"ingredients": 1, "amount": "2 cups"},{"ingredients": 2, "amount": "1/2lb"}]', 'Make the patty. Cook it.', 'img.png'),
+('Fish tacos', '[{"ingredients": 3, "amount": "2 cups"},{"ingredients": 1, "amount": "1/2lb"}]', 'Cook the fish. Make the tacos.', 'img.png'),
+('California rolls', '[{"ingredients": 2, "amount": "2 cups"},{"ingredients": 3, "amount": "1/2lb"}]', 'Cut the ingredients. Roll em.', 'img.png');
 
 
 INSERT INTO ingredients (name, season)
