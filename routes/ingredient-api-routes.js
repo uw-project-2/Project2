@@ -3,7 +3,6 @@ var db = require("../models");
 module.exports = function(app) {
   app.get("/api/ingredients", function(req, res) {
     // Here we add an "include" property to our options in our findAll query
-    // In this case, just db.Recipe
     db.Ingredient.findAll({}).then(function(dbIngredient) {
       res.json(dbIngredient);
     });
@@ -24,7 +23,6 @@ module.exports = function(app) {
 
   app.get("/api/season/", function(req, res) {
     // Find all seasons
-    // TODO:Not sure that we need this
     db.Ingredient.findAll({}).then(function(dbIngredient) {
       res.json(dbIngredient);
     });
@@ -50,6 +48,13 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbIngredient) {
+      res.json(dbIngredient);
+    });
+  });
+
+  // POST route for saving a new ingredient
+  app.post("/api/ingredients", function(req, res) {
+    db.Ingredient.create(req.body).then(function(dbIngredient) {
       res.json(dbIngredient);
     });
   });

@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 text-center" id="yourRecipes">
+      <h2>Recipes</h2>
+      <h4>Select a recipe</h4>
+      <ul id="recipe-list" class="list-group">
+        {{#each recipes}}
+          <li data-id="recipe-{{this.id}}" class="list-group-item">
+            <a href="../recipe/{{this.id}}">
+            <img src="{{this.recipeImage}}" alt="{{this.recipe_name}} photo" class="img-thumbnail"> <br>
+            {{this.recipe_name}}
+            </a>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>
