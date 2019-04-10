@@ -5,8 +5,8 @@
       <h4>Select an ingredient</h4>
       <ul id="ingredient-list" class="list-group">
         {{#each ingredients}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="recipes/{{this.id}}">{{this.name}}</a>
+          <li data-id="ingredient-{{this.id}}" class="list-group-item">
+            <a href="../recipes/{{this.id}}">{{this.name}}</a>
           </li>
         {{/each}}
       </ul>
