@@ -63,7 +63,7 @@ module.exports = function(app) {
           season: req.params.season
         }
       }).then(function(dbIngredient) {
-        res.render("example", {
+        res.render("ingredients", {
           ingredients: dbIngredient
         });
       });
@@ -83,7 +83,10 @@ module.exports = function(app) {
             }
           });
         });
-        res.json(recipeArray);
+        // res.json(recipeArray);
+        res.render("recipes", {
+          recipes: recipeArray
+        });
       });
     }
   });
