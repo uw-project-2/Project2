@@ -48,7 +48,7 @@ $(document).ready(function () {
       console.log($amount.val());
 
       var ingredientObj = {
-        ingredients: ingredientSelect,
+        ingredients: parseInt(ingredientSelect),
         amount: $amount.val()
       };
 
@@ -132,12 +132,9 @@ $(document).ready(function () {
     },
     saveIngredient: function (ingredient) {
       return $.ajax({
-        headers: {
-          "Content-Type": "application/json"
-        },
-        type: "POST",
-        url: "api/ingredients",
-        data: JSON.stringify(ingredient)
+        method: "POST",
+        url: "/api/ingredients",
+        data: ingredient
       });
     },
     getRecipes: function () {
@@ -195,8 +192,6 @@ $(document).ready(function () {
     addToIngredients();
 
 
-    //FIXME: Ingredient IDs for new recipes are store as strings, not integers, so the backend code that JSON parses the recipe info to display on the recipe/example page needs to parseInt the ID?
-
     //stringify the ingredient array
     var ingredientString = JSON.stringify(ingredientsArray);
 
@@ -241,7 +236,6 @@ $(document).ready(function () {
   var handleIngredientSubmit = function (event) {
     event.preventDefault();
 
-
     var ingredient = {
       name: $ingredientName.val().trim(),
       season: $ingredientSeason.val()
@@ -255,6 +249,7 @@ $(document).ready(function () {
       return;
     }
 
+    //API.saveIngredient(formData).then(function () {
     API.saveIngredient(ingredient).then(function () {
       alert("Your recipe has been added!");
     });
