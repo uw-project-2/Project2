@@ -17,6 +17,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbRecipe) {
+      console.log(dbRecipe);
       //create a sequelize where condition query to build an array of keys with ingredient IDs in the recipe
       var recipeIngredients = JSON.parse(dbRecipe.ingredients);
 
