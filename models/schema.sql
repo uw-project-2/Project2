@@ -6,8 +6,8 @@ USE cookbook_db;
 CREATE TABLE recipes (
     id int NOT NULL AUTO_INCREMENT,
     recipe_name VARCHAR(200) NOT NULL,
-    ingredients VARCHAR(550),
-    directions VARCHAR(550) NOT NULL,
+    ingredients VARCHAR(5000),
+    directions VARCHAR(5000) NOT NULL,
     recipeImage VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
