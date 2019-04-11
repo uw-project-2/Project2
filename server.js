@@ -2,14 +2,16 @@ require("dotenv").config();
 
 var express = require("express");
 var exphbs = require("express-handlebars");
-
+var bodyParser = require("body-parser");
 var db = require("./models");
-var fileUpload = require("express-fileupload");
+
 var app = express();
 var PORT = process.env.PORT || 8081;
 
-//image express fileupload
-app.use(fileUpload());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+// parse application/json
+app.use(bodyParser.json());
 
 // Middleware
 app.use(
@@ -17,7 +19,7 @@ app.use(
     extended: true
   })
 );
-app.use(express.json());
+// app.use(express.json());
 
 //Static Directory
 app.use(express.static("public"));

@@ -11,14 +11,14 @@ $(document).ready(function () {
   var $ingredientSubmit = $("#ingredient-submit-btn");
   var $recipeList = $("#recipe-list");
   var $ingredient;
+  var $recipeImage = $("#recipeImage");
   //ingredients array to push the ingredient objects (ingredient and amount) into
   var ingredientsArray = [];
 
   // variabled for adding new ingredients
   var $ingredientName = $("#newIngredient");
   var $ingredientSeason = $("#selectSeason");
-  
-  
+
 
 
   //========= AJAX call to create the ingredients dropdown in the "new recipe" form ==========//
@@ -48,7 +48,7 @@ $(document).ready(function () {
       console.log($amount.val());
 
       var ingredientObj = {
-        ingredients: ingredientSelect,
+        ingredients: parseInt(ingredientSelect),
         amount: $amount.val()
       };
 
@@ -78,8 +78,8 @@ $(document).ready(function () {
         $(addto).after(newInput);
         // $(addRemove).after(removeButton);
         $("#field" + next).attr('data-source',$(addto).attr('data-source'));
-        $("#count").val(next);  
-        
+        $("#count").val(next);
+
             // $('.remove-me').click(function(e){
             //     e.preventDefault();
             //     var fieldNum = this.id.charAt(this.id.length-1);
@@ -87,7 +87,7 @@ $(document).ready(function () {
             //     $(this).remove();
             //     $(fieldID).remove();
             // });
-        
+
         //========= another AJAX call to create the next ingredients dropdown in the "new recipe" form ========//
         $.ajax({
           type: "GET",
@@ -114,24 +114,27 @@ $(document).ready(function () {
 
   // The API object contains methods for each kind of request we'll make
   var API = {
-    saveRecipe: function (recipe) {
+    saveRecipe: function (formData) {
+//       for (let [key, value] of formData.entries()) {
+//   console.log(key, value);
+// }
       return $.ajax({
-        headers: {
-          "Content-Type": "application/json"
-        },
+        // headers: {
+        //   "Content-Type": "application/json"
+        // },
         type: "POST",
         url: "api/recipes",
-        data: JSON.stringify(recipe)
+        data: formData,
+        processData: false,
+        contentType: false,
+        //data: JSON.stringify(recipe)
       });
     },
     saveIngredient: function (ingredient) {
       return $.ajax({
-        headers: {
-          "Content-Type": "application/json"
-        },
-        type: "POST",
-        url: "api/ingredients",
-        data: JSON.stringify(ingredient)
+        method: "POST",
+        url: "/api/ingredients",
+        data: ingredient
       });
     },
     getRecipes: function () {
@@ -148,7 +151,7 @@ $(document).ready(function () {
     }
   };
 
-  
+
 
 
   // refreshRecipes gets new recipes from the db and repopulates the list
@@ -181,15 +184,13 @@ $(document).ready(function () {
   };
 
   //  =============== handleFormSubmit is called whenever we submit a new recipe ==========================//
-  // Save the new recipe to the db 
+  // Save the new recipe to the db
   var handleFormSubmit = function (event) {
     event.preventDefault();
 
     //push the last ingredient and amount added to the ingredientsArray
     addToIngredients();
-  
 
-    //FIXME: Ingredient IDs for new recipes are store as strings, not integers, so the backend code that JSON parses the recipe info to display on the recipe/example page needs to parseInt the ID?
 
     //stringify the ingredient array
     var ingredientString = JSON.stringify(ingredientsArray);
@@ -197,15 +198,26 @@ $(document).ready(function () {
     var recipe = {
       recipe_name: $name.val().trim(),
       ingredients: ingredientString,
-      directions: $directions.val().trim()
+      directions: $directions.val().trim(),
+      recipeImage: $recipeImage.val()
     };
+
+    // convert recipe object (above) into a formdata objects
+    var formData = new FormData();
+
+    formData.append("recipe_name", $name.val().trim());
+    formData.append("ingredients", ingredientString);
+    formData.append("directions", $directions.val().trim());
+    formData.append('recipeImage', $recipeImage.prop('files')[0]);
+
+    // => { recipePropName : "recipePropValue", secondProp : seconValue }
 
     if (!(recipe.recipe_name && recipe.directions)) {
       alert("You must enter a recipe name, ingredients and directions!");
       return;
     }
 
-    API.saveRecipe(recipe).then(function () {
+    API.saveRecipe(formData).then(function () {
       refreshRecipes();
     });
 
@@ -213,6 +225,7 @@ $(document).ready(function () {
     $ingredient.val("");
     $amount.val("");
     $directions.val("");
+    $recipeImage.val("");
 
     alert("Your recipe has been added!");
   };
@@ -223,7 +236,6 @@ $(document).ready(function () {
   var handleIngredientSubmit = function (event) {
     event.preventDefault();
 
-  
     var ingredient = {
       name: $ingredientName.val().trim(),
       season: $ingredientSeason.val()
@@ -237,6 +249,7 @@ $(document).ready(function () {
       return;
     }
 
+    //API.saveIngredient(formData).then(function () {
     API.saveIngredient(ingredient).then(function () {
       alert("Your recipe has been added!");
     });
