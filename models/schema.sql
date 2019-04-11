@@ -6,8 +6,8 @@ USE cookbook_db;
 CREATE TABLE recipes (
     id int NOT NULL AUTO_INCREMENT,
     recipe_name VARCHAR(200) NOT NULL,
-    ingredients VARCHAR(550),
-    directions VARCHAR(550) NOT NULL,
+    ingredients VARCHAR(5000),
+    directions VARCHAR(5000) NOT NULL,
     recipeImage VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
@@ -27,6 +27,8 @@ VALUES
 ('Veggie burger', '[{"ingredients": 1, "amount": "2 cups"},{"ingredients": 2, "amount": "1/2lb"}]', 'Make the patty. Cook it.', '/uploads/img.png'),
 ('Fish tacos', '[{"ingredients": 3, "amount": "2 cups"},{"ingredients": 1, "amount": "1/2lb"}]', 'Cook the fish. Make the tacos.', '/uploads/img.png'),
 ('California rolls', '[{"ingredients": 2, "amount": "2 cups"},{"ingredients": 3, "amount": "1/2lb"}]', 'Cut the ingredients. Roll em.', '/uploads/img.png'),
+('Barbecued Shrimp','[{\"ingredients\":61,\"amount\":\"1 lb.\"},{\"ingredients\":216,\"amount\":\"1 tsp.\"},{\"ingredients\":130,\"amount\":\"1 tsp.\"},{\"ingredients\":123,\"amount\":\"1/4 tsp.\"},{\"ingredients\":217,\"amount\":\"1/2 tsp.\"},{\"ingredients\":155,\"amount\":\"1/2 tsp.\"},{\"ingredients\":220,\"amount\":\"1/2 tsp.\"},{\"ingredients\":147,\"amount\":\"1/8 tsp.\"},{\"ingredients\":245,\"amount\":\"1 stick plus 5 Tb.\"},{\"ingredients\":11,\"amount\":\"1 1/2 tsp. minced\"},{\"ingredients\":163,\"amount\":\"1 tsp.\"},{\"ingredients\":167,\"amount\":\"1/2 cup (chicken stock is okay too)\"},{\"ingredients\":252,\"amount\":\"1/4 cup at room temp.\"}]','1.  Clean shrimp, shells on or off\n\n2. Combine seasonings in small bowl\n\n3. Combine 1 stick butter, worcestershire sauce and seasonings in a large skillet over high heat.  When butter is melted, add shrimp.\n\n4.  Cook for 2 minutes, shaking the pan in a back and forth motion.\n\n5. Add the remaining butter and the stock; cook and shake for 2 minutes\n\n6. Add the beer, cook and shake for 1 minute.  Remove from heat serve immediately.\n\n7. Serve in bowls with french bread or rice.\n\nServes 2-4.','efd013b7c505edf9ffa3b282a3fc5f0d'),
+('Chocolate Chip Cookies','[{\"ingredients\":245,\"amount\":\"1 cup, softened\"},{\"ingredients\":127,\"amount\":\"1 cup\"},{\"ingredients\":128,\"amount\":\"1 cup, packed\"},{\"ingredients\":192,\"amount\":\"2\"},{\"ingredients\":157,\"amount\":\"2 tsp.\"},{\"ingredients\":135,\"amount\":\"1 tsp.\"},{\"ingredients\":123,\"amount\":\"1/2 tsp.\"},{\"ingredients\":124,\"amount\":\"3 cups\"},{\"ingredients\":261,\"amount\":\"2 cups\"},{\"ingredients\":174,\"amount\":\"1 cup chopped\"}]','1. Preheat oven to 350 F/75 C\n2. Cream together butter, white and brown sugar until smooth.\n3. Beat in eggs one at a time, then add vanilla.\n4. Add baking soda and salt to batter.\n5. Stir in flour, chocolate chips.\n6. Drop by large spoonfuls onto ungreased pans.\n7. Bake for ~11 minutes in preheated oven or until edges are browned.\n\nMakes 3 doz.','da24cccdfb2893abf45352e79058b5f8'),
 ('Shrimp & Rice','[{\"ingredients\":236,\"amount\":\"2 cups\"},{\"ingredients\":61,\"amount\":\"1 lb.\"},{\"ingredients\":245,\"amount\":\"2 Tbs.\"},{\"ingredients\":8,\"amount\":\"2 Whole\"},{\"ingredients\":123,\"amount\":\"1/4 tps.\"}]','Cook rice according to directions.  Peel and devein the shrimp.  Cook shrimp in the pan with butter, salt, and carrots.  Eat!','/uploads/img.png');
 
 
@@ -292,5 +294,7 @@ VALUES
 ('Cardamom','Not Applicable'),
 ('Garam Masala','Not Applicable'),
 ('Mustard Seed','Not Applicable'),
+('Chocolate','Not Applicable'),
+('Chocolate Chips','Not Applicable'),
 ('Milk','Not Applicable');
 
