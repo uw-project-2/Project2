@@ -3,8 +3,7 @@
 $(document).ready(function () {
   console.log("ready!");
 
-  //activate chosen dropdown menu plugin
-  // $(".chosen-select").chosen();
+  
 
   // Get references to page elements and declare global ariables
   var $name = $("#name");
@@ -24,25 +23,29 @@ $(document).ready(function () {
   var $ingredientName = $("#newIngredient");
   var $ingredientSeason = $("#selectSeason");
 
+
+  
+
   //Config for Chosen dropdown
-  var config = {
-    ".chosen-select": {},
-    ".chosen-select-deselect": {
-        allow_single_deselect: true
-    },
-    ".chosen-select-no-single": {
-        disable_search_threshold: 10
-    },
-    ".chosen-select-no-results": {
-        no_results_text: "Oops, nothing found!"
-    },
-    ".chosen-select-width": {
-        width: "95%"
-    }
-  };
-  for (var selector in config) {
-      $(selector).chosen(config[selector]);
-  };
+  // var config = {
+  //   ".chosen-select": {},
+  //   ".chosen-select-deselect": {
+  //       allow_single_deselect: true
+  //   },
+  //   ".chosen-select-no-single": {
+  //       disable_search_threshold: 10
+  //   },
+  //   ".chosen-select-no-results": {
+  //       no_results_text: "Oops, nothing found!"
+  //   },
+  //   ".chosen-select-width": {
+  //       width: "95%"
+  //   }
+  // };
+  // for (var selector in config) {
+  //     $(selector).chosen(config[selector]);
+  // };
+  
 
 
 
@@ -73,6 +76,20 @@ $(document).ready(function () {
 
     $ingredient = $("#ingredients-dropdown");
     ingredientVal = $("#ingredients-dropdown :selected").text();
+
+    // $ingredient.chosen({
+    //   disable_search_threshold: 10,
+    //   no_results_text: "Oops, nothing found!",
+    //   width: "95%"
+    // });
+
+    //activate chosen dropdown menu plugin
+    console.log($('.chosen'));
+    $('.chosen').chosen({
+      width: '100%',
+      allow_single_deselect: true
+    });
+
   });
 
 
