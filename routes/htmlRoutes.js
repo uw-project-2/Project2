@@ -93,6 +93,7 @@ module.exports = function(app) {
   });
 
   app.get("/addRecipe", function(req, res) {
+    //add ajax call to get ingredients list
     res.render("addRecipe");
   });
 
