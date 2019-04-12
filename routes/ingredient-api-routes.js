@@ -2,6 +2,7 @@ var db = require("../models");
 
 module.exports = function(app) {
   app.get("/api/ingredients", function(req, res) {
+    //finding all fo the ingredients
     // Here we add an "include" property to our options in our findAll query
     db.Ingredient.findAll({}).then(function(dbIngredient) {
       res.json(dbIngredient);
@@ -9,6 +10,7 @@ module.exports = function(app) {
   });
 
   app.get("/api/season/:season", function(req, res) {
+    //finding all the ingredients by season
     // If user searches by season grab all ingredients in that season
     if (req.params.season) {
       db.Ingredient.findAll({
@@ -58,17 +60,6 @@ module.exports = function(app) {
       res.json(dbIngredient);
     });
   });
-
-  // app.post("/api/new", function(req, res) {
-  //   db.Recipe.create({
-  //     name: req.body.recipe_name
-  // //  photo: req.body.image
-  //     ingredients: req.body.ingredients.name
-  //     directions: req.body.directions
-  //   }).then(function(dbRecipe) {
-  //     res.json(dbRecipe);
-  //   });
-  // });
 
   app.delete("/api/ingredients/:id", function(req, res) {
     db.Ingredient.destroy({
