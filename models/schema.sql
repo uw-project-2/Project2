@@ -2,7 +2,7 @@
 
 -- CREATE DATABASE cookbook_db;
 
-USE i12hsrhlfg6f660g;
+USE y2ck2ovlscgqiv1u;
 
 CREATE TABLE recipes (
     id int NOT NULL AUTO_INCREMENT,
