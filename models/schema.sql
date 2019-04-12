@@ -6,8 +6,8 @@ USE cookbook_db;
 CREATE TABLE recipes (
     id int NOT NULL AUTO_INCREMENT,
     recipe_name VARCHAR(200) NOT NULL,
-    ingredients VARCHAR(550),
-    directions VARCHAR(550) NOT NULL,
+    ingredients VARCHAR(5000),
+    directions VARCHAR(5000) NOT NULL,
     recipeImage VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
@@ -24,9 +24,12 @@ INSERT INTO recipes (recipe_name, ingredients, directions, recipeImage)
 
 -- TODO: '1,2,3' need to be split on the comma and conversted to an array referencing the ingredients table
 VALUES
-('Veggie burger', '[{"ingredients": 1, "amount": "2 cups"},{"ingredients": 2, "amount": "1/2lb"}]', 'Make the patty. Cook it.', '/uploads/img.png'),
-('Fish tacos', '[{"ingredients": 3, "amount": "2 cups"},{"ingredients": 1, "amount": "1/2lb"}]', 'Cook the fish. Make the tacos.', '/uploads/img.png'),
-('California rolls', '[{"ingredients": 2, "amount": "2 cups"},{"ingredients": 3, "amount": "1/2lb"}]', 'Cut the ingredients. Roll em.', '/uploads/img.png'),
+('Barbecued Shrimp','[{\"ingredients\":61,\"amount\":\"1 lb.\"},{\"ingredients\":216,\"amount\":\"1 tsp.\"},{\"ingredients\":130,\"amount\":\"1 tsp.\"},{\"ingredients\":123,\"amount\":\"1/4 tsp.\"},{\"ingredients\":217,\"amount\":\"1/2 tsp.\"},{\"ingredients\":155,\"amount\":\"1/2 tsp.\"},{\"ingredients\":220,\"amount\":\"1/2 tsp.\"},{\"ingredients\":147,\"amount\":\"1/8 tsp.\"},{\"ingredients\":245,\"amount\":\"1 stick plus 5 Tb.\"},{\"ingredients\":11,\"amount\":\"1 1/2 tsp. minced\"},{\"ingredients\":163,\"amount\":\"1 tsp.\"},{\"ingredients\":167,\"amount\":\"1/2 cup (chicken stock is okay too)\"},{\"ingredients\":252,\"amount\":\"1/4 cup at room temp.\"}]','1.  Clean shrimp, shells on or off\n\n2. Combine seasonings in small bowl\n\n3. Combine 1 stick butter, worcestershire sauce and seasonings in a large skillet over high heat.  When butter is melted, add shrimp.\n\n4.  Cook for 2 minutes, shaking the pan in a back and forth motion.\n\n5. Add the remaining butter and the stock; cook and shake for 2 minutes\n\n6. Add the beer, cook and shake for 1 minute.  Remove from heat serve immediately.\n\n7. Serve in bowls with french bread or rice.\n\nServes 2-4.','efd013b7c505edf9ffa3b282a3fc5f0d'),
+('Chocolate Chip Cookies','[{\"ingredients\":245,\"amount\":\"1 cup, softened\"},{\"ingredients\":127,\"amount\":\"1 cup\"},{\"ingredients\":128,\"amount\":\"1 cup, packed\"},{\"ingredients\":192,\"amount\":\"2\"},{\"ingredients\":157,\"amount\":\"2 tsp.\"},{\"ingredients\":135,\"amount\":\"1 tsp.\"},{\"ingredients\":123,\"amount\":\"1/2 tsp.\"},{\"ingredients\":124,\"amount\":\"3 cups\"},{\"ingredients\":261,\"amount\":\"2 cups\"},{\"ingredients\":174,\"amount\":\"1 cup chopped\"}]','1. Preheat oven to 350 F/75 C\n2. Cream together butter, white and brown sugar until smooth.\n3. Beat in eggs one at a time, then add vanilla.\n4. Add baking soda and salt to batter.\n5. Stir in flour, chocolate chips.\n6. Drop by large spoonfuls onto ungreased pans.\n7. Bake for ~11 minutes in preheated oven or until edges are browned.\n\nMakes 3 doz.','da24cccdfb2893abf45352e79058b5f8'),
+('Lemon Meringue Pie', '[{\"ingredients\":127,\"amount\":\"1 cup\"},{\"ingredients\":243,\"amount\":\"3 Tbs.\"},{\"ingredients\":182,\"amount\":\"1 1/4 (cold)\"},{\"ingredients\":213,\"amount\":\"3\"},{\"ingredients\":14,\"amount\":\"1 rind grated\"},{\"ingredients\":199,\"amount\":\"1/2 cup\"},{\"ingredients\":245,\"amount\":\"1 Tbs\"},{\"ingredients\":214,\"amount\":\"3\"},{\"ingredients\":127,\"amount\":\"1/3 cup\"}]', '1. Prebake pie crust according to directions.\n2. Mix 1 cup sugar and cornstarch.  Stir in water and egg yolks.  Cook over medium heat, stirring constantly until thick.  Boil 1 minute.\n3. Stir in lemon juice, zest and butter.  Cool.  Pour into shell.\n4. Beat egg whites until foamy.  Add 1/3 cup sugar, 1 tbs at a time.\n5. Spoon meringue onto filling.\n6. Bake at 350 F/175 C for 15 minutes.\n7. Cool\n\nServes 8', 'c6394cef4e9438e3bafc5430c682e28c'),
+('Fresh Pea Soup','[{\"ingredients\":245,\"amount\":\"2 Tbs.\"},{\"ingredients\":105,\"amount\":\"2 cups (roughly 2 leeks)\"},{\"ingredients\":18,\"amount\":\"1 Cup (chopped)\"},{\"ingredients\":166,\"amount\":\"4 Cups\"},{\"ingredients\":19,\"amount\":\"5 Cups freshly shelled\"},{\"ingredients\":263,\"amount\":\"2/3 Cup (chopped, loosely packed)\"},{\"ingredients\":123,\"amount\":\"2 tsp.\"},{\"ingredients\":130,\"amount\":\"1/2 tsp.\"},{\"ingredients\":264,\"amount\":\"1/2 Cup\"},{\"ingredients\":265,\"amount\":\"1/2 Cup (chopped)\"},{\"ingredients\":267,\"amount\":\"For Serving\"}]','1. Heat the butter in a large saucepan, add the leeks and onion, and cook over medium-low heat for 5 to 10 minutes, until the onion is tender. Add the chicken stock, increase the heat to high, and bring to a boil. Add the peas and cook for 3 to 5 minutes, until the peas are tender. Off the heat, add the mint, salt, and pepper.\n2. Puree the soup in batches: place 1 cup of soup in a blender, place the lid on top, and puree on low speed. With the blender still running, open the vent hole in the lid and slowly add more soup until the blender is three-quarters full. Pour the soup into a large bowl and repeat until all the soup is pureed. Whisk in the creme fraiche and chives and taste for seasoning. Serve hot with garlic croutons.','bd31257c3bb662b48df24234cbdf3081'),
+('Fresh Rhubarb Pie', '[{\"ingredients\":22,\"amount\":\"4 Cups (chopped)\"},{\"ingredients\":127,\"amount\":\"1 1/3 Cups\"},{\"ingredients\":124,\"amount\":\"6 Tbs.\"},{\"ingredients\":245,\"amount\":\"1 Tbs.\"}]', '1. Preheat oven to 450 degrees F (230 degrees C).\n2. Bring pie dough to room temp. for double crust pie\n3. Combine sugar and flour. Sprinkle 1/4 of it over pastry in pie plate. Heap rhubarb over this mixture. Sprinkle with remaining sugar and flour. Dot with small pieces of butter. Cover with top crust.\n4. Place pie on lowest rack in oven. Bake for 15 minutes. Reduce oven temperature to 350 degrees F (175 degrees C), and continue baking for 40 to 45 minutes. Serve warm or cold.', 'e6ed194ccd0cfc89377c30b724e37257'),
+('Aloha Pineapple Chicken','[{\"ingredients\":137,\"amount\":\"1 1/2 lb boneless skinless breasts\"},{\"ingredients\":124,\"amount\":\"1 Tbs.\"},{\"ingredients\":144,\"amount\":\"1 Tbs.\"},{\"ingredients\":20,\"amount\":\"16 oz. (cut into chunks)\"},{\"ingredients\":243,\"amount\":\"1 1/2 tsp.\"},{\"ingredients\":244,\"amount\":\"1 Tbs.\"},{\"ingredients\":162,\"amount\":\"2 Tbs.\"},{\"ingredients\":130,\"amount\":\"1/4 tsp.\"},{\"ingredients\":236,\"amount\":\"3 Cups cooked\"}]','1. Follow cooking instructions for your rice to prepare while you are making the chicken.\n\n2. Cut the chicken into strips. Put the flour into a gallon bag and add the chicken. Shake to coat.\n\n3. Brown the chicken with the oil over medium heat in a skillet. Cook for 3-5 minutes each side or until cooked through and juices are clear. Set the chicken aside.\n\n4. While the chicken is cooking, drain the pineapple juice and reserve 1/4 cup. (You can discard the remaining juice or drink it.)\n\n5. Combine the cornstarch and 1/4 cup pineapple juice in a small bowl. Add to the skillet after you’ve removed the chicken. Add the honey, soy sauce, and pepper; stir well.\n\n6. Increase the heat to medium-high and cook and stir. Bring to a boil; cook and stir for another 30-60 seconds or until the juice mixture is thickened.\n\n7. Reduce the heat to medium and add the pineapple and chicken, heating through.\n\n8. Serve over rice.','936491b4d8583cd942a1e7a962e15bea'),
 ('Shrimp & Rice','[{\"ingredients\":236,\"amount\":\"2 cups\"},{\"ingredients\":61,\"amount\":\"1 lb.\"},{\"ingredients\":245,\"amount\":\"2 Tbs.\"},{\"ingredients\":8,\"amount\":\"2 Whole\"},{\"ingredients\":123,\"amount\":\"1/4 tps.\"}]','Cook rice according to directions.  Peel and devein the shrimp.  Cook shrimp in the pan with butter, salt, and carrots.  Eat!','/uploads/img.png');
 
 
@@ -292,5 +295,15 @@ VALUES
 ('Cardamom','Not Applicable'),
 ('Garam Masala','Not Applicable'),
 ('Mustard Seed','Not Applicable'),
-('Milk','Not Applicable');
-
+('Chocolate','Not Applicable'),
+('Chocolate Chips','Not Applicable'),
+('Milk','Not Applicable'),
+('Mint','Not Applicable'),
+('Creme Fraiche','Not Applicable'),
+('Chives','Not Applicable'),
+('Croutons','Not Applicable'),
+('Garlic Croutons','Not Applicable'),
+('Pie Dough','Not Applicable'),
+('Hoisin Sauce','Not Applicable'),
+('Miso Paste','Not Applicable'),
+('Bok Choy','Not Applicable');

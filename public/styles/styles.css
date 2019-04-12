@@ -37,10 +37,15 @@ body {
   color: white;
   background-image: url(/img/jalapenojmbtrn.png);
   margin-bottom: .3rem;
+  font-size: 3.8rem;
+  font-weight: 700;
+  letter-spacing: .3rem;
+  text-shadow: 0.1rem 0.1rem 0.8rem black;
 }
 
 .list-group-item {
   line-height: 2.5;
+  font-weight: bold;
 }
 
 #yourRecipes {
@@ -80,8 +85,9 @@ label {
   margin-top: .75rem;
 }
 
-.list-group-item {
-    font-weight: bold;
+#person {
+  margin: 0 auto;
+
 }
 
 #add-new-btn {
