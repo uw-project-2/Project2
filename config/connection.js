@@ -10,7 +10,7 @@ if (process.env.JAWSDB_URL) {
     host: "localhost",
     user: "root",
     password: keys.password,
-    database: "y2ck2ovlscgqiv1u",
+    database: "cookbook_db",
     port: 3306
   });
 }
