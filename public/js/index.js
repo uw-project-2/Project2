@@ -18,33 +18,12 @@ $(document).ready(function () {
   var $recipeImage = $("#recipeImage");
   //ingredients array to push the ingredient objects (ingredient and amount) into
   var ingredientsArray = [];
+  //String of options to be added to the ingredients dropdown
+  var optionsString;
 
   // variabled for adding new ingredients
   var $ingredientName = $("#newIngredient");
   var $ingredientSeason = $("#selectSeason");
-
-
-  
-
-  //Config for Chosen dropdown
-  // var config = {
-  //   ".chosen-select": {},
-  //   ".chosen-select-deselect": {
-  //       allow_single_deselect: true
-  //   },
-  //   ".chosen-select-no-single": {
-  //       disable_search_threshold: 10
-  //   },
-  //   ".chosen-select-no-results": {
-  //       no_results_text: "Oops, nothing found!"
-  //   },
-  //   ".chosen-select-width": {
-  //       width: "95%"
-  //   }
-  // };
-  // for (var selector in config) {
-  //     $(selector).chosen(config[selector]);
-  // };
   
 
 
@@ -54,40 +33,25 @@ $(document).ready(function () {
     type: "GET",
     url: "/api/ingredients"
   }).then(function (ingredients) {
-    // console.log("PRINTING INGREDIENTS");
-    // console.log(ingredients);
-    console.log("Making AJAX call");
     var options = ingredients.map(function (ingredient) {
-      // return `<option id="ingredient-select" value="${ingredient.name}">${ingredient.id}</option>`;
       return `<option value="${ingredient.id}">${ingredient.name}</option>`;
     });
-    // console.log("PRINTING OPTIONS ARRAY");
-    // console.log(options);
 
-    var optionsString = options.join("");
-    // console.log("PRINTING OPTIONS STRING");
-    // console.log(optionsString);
+    //create a string of the ingredient options that will be added to the empty dropdown menu dynamically
+    optionsString = options.join("");
 
-    // $("#ingredients").append(`<input class="form-control" aria-describedby="ingredients" list="options" id="ingredients-dropdown"></input>`);
-    // $("#ingredients-dropdown").after(`<datalist id="options">${options}</datalist>`);
-
-    // $("#ingredients").append(`<select class="form-control" id="ingredients-dropdown"></select>`);
+    $("#ingredients-dropdown").append("<option></option>");
     $("#ingredients-dropdown").append(optionsString);
 
     $ingredient = $("#ingredients-dropdown");
     ingredientVal = $("#ingredients-dropdown :selected").text();
 
-    // $ingredient.chosen({
-    //   disable_search_threshold: 10,
-    //   no_results_text: "Oops, nothing found!",
-    //   width: "95%"
-    // });
-
     //activate chosen dropdown menu plugin
-    console.log($('.chosen'));
     $('.chosen').chosen({
       width: '100%',
-      allow_single_deselect: true
+      allow_single_deselect: true,
+      placeholder_text_single: "Select an ingredient",
+      no_results_text: "Oops, nothing found! Please add any missing ingredients <a href='/'>here.</a>"
     });
 
   });
@@ -129,7 +93,7 @@ $(document).ready(function () {
         var addto = "#field" + next;
         // var addRemove = "#field" + (next);
         next = next + 1;
-        var newIn = ' <div id="field'+ next +'" name="field'+ next +'"><label for="ingredients">Ingredient:</label><div id="ingredients'+ next +'"></div><label for="amount">Ingredient amount:</label><input type="text" class="form-control" id="amount'+ next +'" aria-describedby="amount" placeholder="The amount for this ingredient">';
+        var newIn = ' <div id="field'+ next +'" name="field'+ next +'"><label for="ingredients">Ingredient:</label><div id="ingredients'+ next +'"></div><label for="amount">Ingredient amount:</label><input type="text" class="form-control amount" id="amount'+ next +'" aria-describedby="amount" placeholder="The amount for this ingredient">';
         var newInput = $(newIn);
         // var removeBtn = '<button id="remove' + (next - 1) + '" class="btn btn-danger remove-me" >Remove</button></div></div><div id="field">';
         // var removeButton = $(removeBtn);
@@ -146,25 +110,26 @@ $(document).ready(function () {
             //     $(fieldID).remove();
             // });
 
-        //========= another AJAX call to create the next ingredients dropdown in the "new recipe" form ========//
-        $.ajax({
-          type: "GET",
-          url: "/api/ingredients"
-        }).then(function (ingredients) {
-          // console.log("Making AJAX call");
-          var options = ingredients.map(function (ingredient) {
-            // return `<option id="ingredient-select" value="${ingredient.name}">${ingredient.id}</option>`;
-            return `<option id="ingredient-select" value="${ingredient.id}">${ingredient.name}</option>`;
-          });
-          $("#ingredients"+ next).append('<input class="form-control" aria-describedby="ingredients" list="options" id="ingredients-dropdown'+ next +'"></input>');
-          $("#ingredients-dropdown"+ next).after(`<datalist id="options">${options}</datalist>`);
+
+        
+
+        //========= create the next ingredients dropdown in the "new recipe" form ========//
+
+        $("#ingredients"+ next).append('<select class="form-control chosen" id="ingredients-dropdown'+ next +'"></select>');
+        $("#ingredients-dropdown"+ next).append("<option></option>");  
+        $("#ingredients-dropdown"+ next).append(optionsString);
 
           //Update $ingredient and $amount variables so they are ready to push to the ingredientsArray
           $ingredient = $("#ingredients-dropdown"+ next);
           $amount = $("#amount"+ next);
-
+        
+        //activate new chosen dropdown menu plugin
+        $('.chosen').chosen({
+          width: '100%',
+          allow_single_deselect: true,
+          placeholder_text_single: "Select an ingredient",
+          no_results_text: "Oops, nothing found! Please add any missing ingredients <a href='/'>here.</a>"
         });
-
     });
 
 
@@ -279,9 +244,13 @@ $(document).ready(function () {
       refreshRecipes();
     });
 
+  
+    var $allAmountEntries = $(".amount");
+    var $allIngredientDropdowns = $(".chosen");
+    
     $name.val("");
-    $ingredient.val("");
-    $amount.val("");
+    $allIngredientDropdowns.val("").trigger('chosen:updated');
+    $allAmountEntries.val("");
     $directions.val("");
     $recipeImage.val("");
 
