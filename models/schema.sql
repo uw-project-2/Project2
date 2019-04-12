@@ -1,25 +1,26 @@
 -- DROP DATABASE IF EXISTS cookbook_db;
 
 -- CREATE DATABASE cookbook_db;
+
 -- USE cookbook_db;
 
-CREATE TABLE recipes (
-    id int NOT NULL AUTO_INCREMENT,
-    recipe_name VARCHAR(200) NOT NULL,
-    ingredients VARCHAR(5000),
-    directions VARCHAR(5000) NOT NULL,
-    recipeImage VARCHAR(255) NOT NULL,
-    PRIMARY KEY (id)
-);
+-- CREATE TABLE recipes (
+--     id int NOT NULL AUTO_INCREMENT,
+--     recipe_name VARCHAR(200) NOT NULL,
+--     ingredients VARCHAR(5000),
+--     directions VARCHAR(5000) NOT NULL,
+--     recipeImage VARCHAR(255) NOT NULL,
+--     PRIMARY KEY (id)
+-- );
+--
+-- CREATE TABLE ingredients (
+--     id int NOT NULL AUTO_INCREMENT,
+--     name VARCHAR(200) NOT NULL,
+--     season VARCHAR(200) NULL,
+--     PRIMARY KEY (id)
+-- );
 
-CREATE TABLE ingredients (
-    id int NOT NULL AUTO_INCREMENT,
-    name VARCHAR(200) NOT NULL,
-    season VARCHAR(200) NULL,
-    PRIMARY KEY (id)
-);
-
-INSERT INTO recipes (recipe_name, ingredients, directions, recipeImage)
+INSERT INTO Recipes (recipe_name, ingredients, directions, recipeImage)
 
 
 -- TODO: '1,2,3' need to be split on the comma and conversted to an array referencing the ingredients table
@@ -33,7 +34,7 @@ VALUES
 ('Shrimp & Rice','[{\"ingredients\":236,\"amount\":\"2 cups\"},{\"ingredients\":61,\"amount\":\"1 lb.\"},{\"ingredients\":245,\"amount\":\"2 Tbs.\"},{\"ingredients\":8,\"amount\":\"2 Whole\"},{\"ingredients\":123,\"amount\":\"1/4 tps.\"}]','Cook rice according to directions.  Peel and devein the shrimp.  Cook shrimp in the pan with butter, salt, and carrots.  Eat!','/uploads/img.png');
 
 
-INSERT INTO ingredients (name, season)
+INSERT INTO Ingredients (name, season)
 
 VALUES
 ('Apples', 'Spring'),
