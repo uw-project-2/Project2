@@ -1,7 +1,8 @@
 -- DROP DATABASE IF EXISTS cookbook_db;
 
 -- CREATE DATABASE cookbook_db;
--- USE cookbook_db;
+
+USE i12hsrhlfg6f660g;
 
 CREATE TABLE recipes (
     id int NOT NULL AUTO_INCREMENT,
