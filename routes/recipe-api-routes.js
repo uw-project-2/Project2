@@ -1,24 +1,9 @@
 var db = require("../models");
-
+//used for adding an upload image function for users when adding recipes
 var multer = require("multer");
-//var path = require("path");
 
-//var upload = multer({ dest: "./public/uploads" });
+//Destination folder for image uploads
 var upload = multer({ dest: "public/uploads" });
-
-// var upload = multer({ storage: storage });
-//
-// var storage = multer.diskStorage({
-//   destination: function(req, file, cb) {
-//     cb(null, "./public/uploads");
-//   },
-//   filename: function(req, file, cb) {
-//     cb(
-//       null,
-//       file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-//     );
-//   }
-// });
 
 module.exports = function(app) {
   app.get("/api/recipes", function(req, res) {
@@ -40,11 +25,8 @@ module.exports = function(app) {
     });
   });
 
-  // POST route for saving a new recipe
+  // POST route for saving a new recipe and adding an image to uploads folder
   app.post("/api/recipes", upload.single("recipeImage"), function(req, res) {
-    // console.log(JSON.stringify(req.body, null, 2));
-    // console.log(req.file);
-
     const recipe = req.body;
     recipe.recipeImage = req.file.filename;
 

@@ -19,7 +19,6 @@ app.use(
     extended: true
   })
 );
-// app.use(express.json());
 
 //Static Directory
 app.use(express.static("public"));

@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS cookbook_db;
+-- DROP DATABASE IF EXISTS cookbook_db;
 
-CREATE DATABASE cookbook_db;
-USE cookbook_db;
+-- CREATE DATABASE cookbook_db;
+-- USE cookbook_db;
 
 CREATE TABLE recipes (
     id int NOT NULL AUTO_INCREMENT,

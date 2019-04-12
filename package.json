@@ -31,6 +31,9 @@
     "lint": "node_modules/.bin/eslint '**/*.js' --fix",
     "start": "node server.js"
   },
+  "engines": {
+    "node": "11.2.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/uw-project-2/Project2.git"
