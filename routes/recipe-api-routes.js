@@ -6,6 +6,7 @@ var multer = require("multer");
 var upload = multer({ dest: "public/uploads" });
 
 module.exports = function(app) {
+
   app.get("/api/recipes", function(req, res) {
     // Here we add an "include" property to our options in our findAll query
     db.Recipe.findAll({}).then(function(dbRecipe) {
