@@ -1,16 +1,16 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 text-center" id="yourRecipes">
+    <div class="col-8 text-center mx-auto" id="yourRecipes">
       <h2>Recipes</h2>
       <h4>Select a recipe</h4>
       <ul id="recipe-list" class="list-group">
         {{#each recipes}}
-          <li data-id="recipe-{{this.id}}" class="list-group-item">
-            <a href="../recipe/{{this.id}}">
-            <img src="/uploads/{{recipeImage}}" alt="{{this.recipe_name}}photo" class="img-thumbnail"> <br>
-            {{this.recipe_name}}
-            </a>
-          </li>
+            <a class="recipes-list-link" href="../recipe/{{this.id}}">
+                <li data-id="recipe-{{this.id}}" class="list-group-item recipes-list-item hvr-grow-shadow">
+                    <img src="/uploads/{{recipeImage}}" alt="{{this.recipe_name}}photo" class="recipe-list-img"> <br>
+                    {{this.recipe_name}}
+            </li>
+          </a>
         {{/each}}
       </ul>
     </div>
