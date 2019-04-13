@@ -19,7 +19,6 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-      //include: [db.Ingredient]
     }).then(function(dbRecipe) {
       res.json(dbRecipe);
     });

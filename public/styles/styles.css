@@ -7,8 +7,6 @@ a {
   color: #22b573;
 }
 
-
-
 footer {
   /* background-color: #0f0e0e; */
   color: #666666;
@@ -26,9 +24,7 @@ label {
 
 #person {
   margin: 0 auto;
-
 }
-
 
 /* ============================================================================== */
 /* NAVBAR */
@@ -62,13 +58,9 @@ label {
   font-size: 2.25rem;
 }
 
-
 .nav-link{
   font-size: 1.25rem;
 }
-
-
-
 
 /* ============================================================================== */
 /* INGREDIENTS LIST PAGE */
@@ -117,7 +109,6 @@ label {
   padding-bottom: 1rem;
 }
 
-
 /* ============================================================================== */
 /* RECIPE LIST PAGE */
 
@@ -156,13 +147,29 @@ label {
   border-radius: 7px;
 }
 
+pre {
+  font-size: inherit;
+  color: inherit;
+  border: initial;
+  padding: initial;
+  font-family: inherit;
+  display: flex;   
+  flex-wrap: wrap;
+  overflow-wrap: normal;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  }
+
 /* ============================================================================== */
 /* HOMEPAGE */
 
 #add-new-btn {
   margin-top: 20px;
 }
-
 
 #home-header {
   margin-bottom: 8px;
@@ -181,7 +188,6 @@ label {
   margin-top: 15px;
   /* max-height: 190px; */
 }
-
 
 .season-card {
   min-width: 15rem;
@@ -225,19 +231,11 @@ h5.card-title {
 
 #toHome {
   color: white;
-  
-
 }
 
 #toHome:hover {
   color: #EAC807;
-  
 }
-
-/* #selectSeason {
-  height: 110px;
-} */
-
 
 /* ============================================================================== */
 /* BUTTONS */
@@ -252,7 +250,6 @@ h5.card-title {
   border-color: #0e8a52 !important;
 }
 
-
 /* ============================================================================== */
 /* HOVER EFFECTS */
 
@@ -260,7 +257,6 @@ a:hover {
   text-decoration: none;
   color: #0e8a52;
 }
-
 
   /* Grow Shadow */
 .hvr-grow-shadow {
