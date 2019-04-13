@@ -64,3 +64,11 @@ Sequelize is a promise-based Node.js ORM for Postgres, MySQL, MariaDB, SQLite an
  ####New Tech:
  #####Chosen.js
  Chosen is a jQuery plugin that makes long, unwieldy select boxes much more user-friendly.
+
+ #####Multer
+ Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.
+
+#####hover.css
+The :hover CSS pseudo-class matches when the user interacts with an element with a pointing device, but does not necessarily activate it. It is generally triggered when the user hovers over an element with the cursor (mouse pointer).
+
+
