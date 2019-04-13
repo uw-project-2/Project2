@@ -3,6 +3,11 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.row {
+  margin-right: 0px;
+  margin-left: 0px;
+}
+
 a {
   color: #22b573;
 }
