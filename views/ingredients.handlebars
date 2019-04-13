@@ -1,13 +1,15 @@
 <div class="container">
   <div class="row">
-    <div class="col-12 text-center" id="yourRecipes">
+    <div class="col-8 text-center mx-auto" id="yourRecipes">
       <h2>Ingredients in Season</h2>
       <h4>Select an ingredient</h4>
       <ul id="ingredient-list" class="list-group">
         {{#each ingredients}}
-          <li data-id="ingredient-{{this.id}}" class="list-group-item">
-            <a href="../recipes/{{this.id}}">{{this.name}}</a>
-          </li>
+          <a class="ingredients-list-link" href="../recipes/{{this.id}}">
+            <li data-id="ingredient-{{this.id}}" class="list-group-item ingredients-list-item hvr-grow-shadow">
+                {{this.name}}
+            </li>
+          </a>
         {{/each}}
       </ul>
     </div>

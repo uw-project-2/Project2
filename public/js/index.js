@@ -51,7 +51,7 @@ $(document).ready(function () {
       width: '100%',
       allow_single_deselect: true,
       placeholder_text_single: "Select an ingredient",
-      no_results_text: "Oops, nothing found! Please add any missing ingredients <a href='/'>here.</a>"
+      no_results_text: "Oops, nothing found! Please add any missing ingredients <a href='/addIngredient'>here.</a>"
     });
 
   });

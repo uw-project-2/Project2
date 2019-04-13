@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="home-header">
       <div class="row">
         <div class="col-12 text-center" id="home-header">
           <h2>It's time to harvest!</h2>
@@ -11,16 +11,18 @@
     <div class="row">
         <div class="card-deck text-center mx-auto">
           <a href = "/ingredients/Spring">
-            <div id="spring-card" class="card text-white mb-3 season-card" style="max-width: 18rem;">
+            <div id="spring-card" class="card text-white mb-3 season-card hvr-grow-shadow" style="max-width: 18rem;">
               <div class="card-body">
-                <h5 class="card-title">Spring</h5>
+                <img class="season-icon" src="/img/icons-01.png">
+                <h5 class="card-title home-season-link">Spring</h5>
               </div>
             </div>
           </a>
           <a href = "/ingredients/Summer">
-            <div id="summer-card" class="card text-white mb-3 season-card" style="max-width: 18rem;">
+            <div id="summer-card" class="card text-white mb-3 season-card hvr-grow-shadow" style="max-width: 18rem;">
               <div class="card-body">
-                <h5 class="card-title">Summer</h5>
+                <img class="season-icon" src="/img/icons-02.png">
+                <h5 class="card-title home-season-link">Summer</h5>
               </div>
             </div>
           </a>
@@ -29,16 +31,18 @@
     <div class="row">
         <div class="card-deck text-center mx-auto">
           <a href = "/ingredients/Fall">
-            <div id="fall-card" class="card text-white mb-3 season-card" style="max-width: 18rem;">
+            <div id="fall-card" class="card text-white mb-3 season-card hvr-grow-shadow" style="max-width: 18rem;">
               <div class="card-body">
-                <h5 class="card-title">Fall</h5>
+                <img class="season-icon" src="/img/icons-03.png">
+                <h5 class="card-title home-season-link">Fall</h5>
               </div>
             </div>
           </a>
           <a href = "/ingredients/Winter">
-            <div id="winter-card" class="card text-white mb-3 season-card" style="max-width: 18rem;">
+            <div id="winter-card" class="card text-white mb-3 season-card hvr-grow-shadow" style="max-width: 18rem;">
               <div class="card-body">
-                <h5 class="card-title">Winter</h5>
+                <img class="season-icon" src="/img/icons-04.png">
+                <h5 class="card-title home-season-link">Winter</h5>
               </div>
             </div>
           </a>
@@ -47,27 +51,11 @@
 </div>
 
 
-    {{!-- <div class="container">
-      <div class="row">
-        <div class="col-12 text-center" id="yourRecipes">
-          <h2 yourRecipesList><i class="fas fa-bookmark"></i> Your Recipes</h2>
-          <ul id="recipe-list" class="list-group">
-            {{#each recipes}}
-            <li data-id="{{this.id}}" class="list-group-item">
-              <a href="recipe/{{this.id}}">{{this.recipe_name}}</a>
-              <button class="btn btn-danger float-right delete">ｘ</button>
-            </li>
-            {{/each}}
-          </ul>
-        </div>
-      </div>
-    </div> --}}
-
-    <div class="container">
+    <div class="container text-center" id="home-add-buttons">
       <div class="row">
         <div class="col-12" id="addRecipe">
-          <a href = "/addRecipe"><h2><i class="fas fa-plus-circle"></i> Add a recipe</h2></a>
-          <a href = "/addIngredient"><h2><i class="fas fa-plus-circle"></i> Add an ingredient</h2></a>
+          <a href = "/addRecipe"><h2 class="hvr-icon-grow"><i class="fas fa-plus-circle hvr-icon"></i>  Add a recipe</h2></a> <br>
+          <a href = "/addIngredient"><h2 class="hvr-icon-grow"><i class="fas fa-plus-circle hvr-icon"></i>  Add an ingredient</h2></a>
         </div>
       </div>
     </div>
