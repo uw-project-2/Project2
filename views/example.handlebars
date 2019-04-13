@@ -9,14 +9,13 @@
           <img src="/uploads/{{recipe.recipeImage}}" id="recipe-full-image" class="img-fluid"/>
           <h4>Ingredients:</h4>
           <p>
-            {{!-- replace this ingredients variable with a handlebars loop that will display all of the correct information  --}}
               {{#each recipe.ingredients}}
                 <p>{{name}} — {{amount}}</p>
               {{/each}}
           </p>
 
           <h4>Directions:</h4>
-          <p>{{recipe.directions}}</p>
+          <pre><p>{{recipe.directions}}</p></pre>
         </div>
       </div>
     </div>
