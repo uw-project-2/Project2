@@ -3,8 +3,6 @@
 $(document).ready(function () {
   console.log("ready!");
 
-  
-
   // Get references to page elements and declare global ariables
   var $name = $("#name");
   var $amount = $("#amount");
@@ -24,9 +22,6 @@ $(document).ready(function () {
   // variabled for adding new ingredients
   var $ingredientName = $("#newIngredient");
   var $ingredientSeason = $("#selectSeason");
-  
-
-
 
   //========= AJAX call to create the ingredients dropdown in the "new recipe" form ==========//
   $.ajax({
@@ -53,9 +48,7 @@ $(document).ready(function () {
       placeholder_text_single: "Select an ingredient",
       no_results_text: "Oops, nothing found! Please add any missing ingredients <a href='/addIngredient'>here.</a>"
     });
-
   });
-
 
   var addToIngredients = function () {
       //grab ID of the previously selected ingredient
@@ -64,7 +57,6 @@ $(document).ready(function () {
       console.log(ingredientVal);
       
       var ingredientSelect = $ingredient.val();
-
 
       console.log("PRINTING AMOUNT");
       console.log($amount.val());
@@ -79,16 +71,12 @@ $(document).ready(function () {
       console.log(ingredientsArray);
   };
 
-
-
-
   //JS code to allow you to add multiple ingredients
   var next = 0;
     $("#add-more").click(function(e){
         e.preventDefault();
 
         addToIngredients();
-
 
         var addto = "#field" + next;
         // var addRemove = "#field" + (next);
@@ -102,16 +90,13 @@ $(document).ready(function () {
         $("#field" + next).attr('data-source',$(addto).attr('data-source'));
         $("#count").val(next);
 
-            // $('.remove-me').click(function(e){
-            //     e.preventDefault();
-            //     var fieldNum = this.id.charAt(this.id.length-1);
-            //     var fieldID = "#field" + fieldNum;
-            //     $(this).remove();
-            //     $(fieldID).remove();
-            // });
-
-
-        
+        // $('.remove-me').click(function(e){
+        //     e.preventDefault();
+        //     var fieldNum = this.id.charAt(this.id.length-1);
+        //     var fieldID = "#field" + fieldNum;
+        //     $(this).remove();
+        //     $(fieldID).remove();
+        // });
 
         //========= create the next ingredients dropdown in the "new recipe" form ========//
 
@@ -142,15 +127,11 @@ $(document).ready(function () {
 //   console.log(key, value);
 // }
       return $.ajax({
-        // headers: {
-        //   "Content-Type": "application/json"
-        // },
         type: "POST",
         url: "api/recipes",
         data: formData,
         processData: false,
         contentType: false,
-        //data: JSON.stringify(recipe)
       });
     },
     saveIngredient: function (ingredient) {
@@ -173,8 +154,6 @@ $(document).ready(function () {
       });
     }
   };
-
-
 
 
   // refreshRecipes gets new recipes from the db and repopulates the list
@@ -214,7 +193,6 @@ $(document).ready(function () {
     //push the last ingredient and amount added to the ingredientsArray
     addToIngredients();
 
-
     //stringify the ingredient array
     var ingredientString = JSON.stringify(ingredientsArray);
 
@@ -233,8 +211,6 @@ $(document).ready(function () {
     formData.append("directions", $directions.val().trim());
     formData.append('recipeImage', $recipeImage.prop('files')[0]);
 
-    // => { recipePropName : "recipePropValue", secondProp : seconValue }
-
     if (!(recipe.recipe_name && recipe.directions)) {
       alert("You must enter a recipe name, ingredients and directions!");
       return;
@@ -244,7 +220,6 @@ $(document).ready(function () {
       refreshRecipes();
     });
 
-  
     var $allAmountEntries = $(".amount");
     var $allIngredientDropdowns = $(".chosen");
     
@@ -283,10 +258,7 @@ $(document).ready(function () {
 
     $ingredientName.val("");
     $ingredientSeason.val("");
-
   };
-
-
 
   // handleDeleteBtnClick is called when an recipe's delete button is clicked
   // Remove the recipe from the db and refresh the list
@@ -304,5 +276,4 @@ $(document).ready(function () {
   $submitBtn.on("click", handleFormSubmit);
   $ingredientSubmit.on("click", handleIngredientSubmit);
   // $recipeList.on("click", ".delete", handleDeleteBtnClick);
-
 });
