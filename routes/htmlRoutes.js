@@ -37,7 +37,7 @@ module.exports = function(app) {
         dbIngredients.forEach(ingredient => {
           // sync each ingredient with recipe ingredient
           recipeIngredients.forEach(recipeIngredient => {
-            if (ingredient.id === recipeIngredient.ingredients) {
+            if (ingredient.id === recipeIngredient) {
               fullIngredientList.push({
                 id: ingredient.id,
                 name: ingredient.name,
