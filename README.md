@@ -1,8 +1,8 @@
-#PROJECT 2 - HARVEST: Seasonal Ingredients & Recipes
-###Lacey Gibbons, Bryan Kelley, Tad Ochwat, and Benjamin Vaagen
+# PROJECT 2 - HARVEST: Seasonal Ingredients & Recipes
+### Lacey Gibbons, Bryan Kelley, Tad Ochwat, and Benjamin Vaagen
 
-####Deployed on Heroku: https://harvest-recipe-app.herokuapp.com/
-####Github Repository: https://github.com/uw-project-2/Project2
+#### Deployed on Heroku: https://harvest-recipe-app.herokuapp.com/
+#### Github Repository: https://github.com/uw-project-2/Project2
 
 ### Requirements
 
@@ -26,7 +26,7 @@ Your project must:
 
 * Must not expose sensitive API key information on the server, see [Protecting-API-Keys-In-Node.md](../../../10-nodejs/03-Supplemental/Protecting-API-Keys-In-Node.md)
 
-####Libraries:
+#### Libraries:
 **Body Parser**
 body-parser module parses the JSON, buffer, string and URL encoded data submitted using HTTP POST request.
 
@@ -61,14 +61,14 @@ The path module provides utilities for working with file and directory paths.
 **Sequelize**
 Sequelize is a promise-based Node.js ORM for Postgres, MySQL, MariaDB, SQLite and Microsoft SQL Server. It features solid transaction support, relations, eager and lazy loading, read replication and more.
 
- ####New Tech:
- #####Chosen.js
+ #### New Tech:
+ ##### Chosen.js
  Chosen is a jQuery plugin that makes long, unwieldy select boxes much more user-friendly.
 
- #####Multer
+ ##### Multer
  Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files. It is written on top of busboy for maximum efficiency.
 
-#####hover.css
+##### hover.css
 The :hover CSS pseudo-class matches when the user interacts with an element with a pointing device, but does not necessarily activate it. It is generally triggered when the user hovers over an element with the cursor (mouse pointer).
 
 
