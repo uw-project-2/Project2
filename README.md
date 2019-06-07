@@ -4,29 +4,25 @@
 #### Deployed on Heroku: https://harvest-recipe-app.herokuapp.com/
 #### Github Repository: https://github.com/uw-project-2/Project2
 
-### Requirements
+### Project Technologies
 
-Your project must:
+* Node and Express Web Server
 
-* Use a Node and Express Web Server;
+* MySQL Database and Sequelize
 
-* Be backed by a MySQL Database an ORM (not necessarily Sequelize);
+* GET and POST routes for retrieving and adding new data
 
-* Have both GET and POST routes for retrieving and adding new data;
+* Deployed using Heroku (with data)
 
-* Be deployed using Heroku (with Data);
+* Bootstrap CSS for frontend 
 
-* Utilize at least one new library, package, or technology that we haven’t discussed;
+* Folder structure meets MVC Paradigm
 
-* Have a polished frontend / UI;
+* Linted code (using ESLint)
 
-* Have folder structure that meets MVC Paradigm;
+* Sensitive API key information hidden
 
-* Meet good quality coding standards (indentation, scoping, naming).
-
-* Must not expose sensitive API key information on the server, see [Protecting-API-Keys-In-Node.md](../../../10-nodejs/03-Supplemental/Protecting-API-Keys-In-Node.md)
-
-#### Libraries:
+#### Libraries Used:
 **Body Parser**
 body-parser module parses the JSON, buffer, string and URL encoded data submitted using HTTP POST request.
 
